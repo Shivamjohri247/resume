@@ -7,75 +7,88 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: auto;
+            padding: 20px;
         }
-        h1, h2, h3 {
-            margin-bottom: 10px;
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
         }
-        p {
-            margin: 5px 0;
-        }
-        .experience-item {
+        .contact-info {
             margin-bottom: 20px;
         }
-        .experience-item h3 {
-            margin-bottom: 5px;
+        .work-experience, .education {
+            margin-bottom: 30px;
         }
-        .experience-item p:last-child {
-            margin-bottom: 0;
+        .work-experience h3, .education h3 {
+            margin-bottom: 10px;
+        }
+        .work-experience p, .education p {
+            margin: 5px 0;
+        }
+        .skills {
+            margin-bottom: 30px;
+        }
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills ul li {
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Shivam Johri</h1>
-        <p>910-840-4965 | shivamjohri247@gmail.com</p>
-
-        <h2>Experience</h2>
-
-        <div class="experience-item">
-            <h3>Software Engineer | Epam Systems, India</h3>
-            <p>
-                February 2024 - Present<br>
-                - Working for a large capital markets client, focused on Named Entity Recognition in user queries and recommendation engine for stock prediction.<br>
-                - Developed a new feature for Named Entity Recognition in user queries, currently deployed in development stage for system integration testing.<br>
-                - Working on a feature to create a recommendation engine for stock name prediction based on input queries from users and recommend similar stocks.
-            </p>
+        <div class="contact-info">
+            <p>910-840-4965</p>
+            <p>shivamjohri247@gmail.com</p>
         </div>
-
-        <div class="experience-item">
-            <h3>ML Engineering Senior Analyst | Accenture Technology, India</h3>
-            <p>
-                October 2022 - Present<br>
-                - Currently working on building Generative AI use cases using commercialized models as Azure OpenAI/GOOGLE Palm 2 for numerous clients pertaining to Financial Services/Life Sciences domain.<br>
-                - Created 5 recommendation engines for a Retail Client in Vertex AI and deployed as end-to-end service in Google Cloud Platform.<br>
-                - Worked on Python automation for Regulatory and Compliance Report Generation and Processing and deployed as Cloud Functions.
-            </p>
+        <div class="work-experience">
+            <h3>Experience</h3>
+            <p><strong>Software Engineer</strong> | Epam Systems | February 14, 2024 - Present</p>
+            <ul>
+                <li>Worked on creating a new feature for Named Entity Recognition in user queries deployed in development stage for system integration testing.</li>
+                <li>Developed a feature to create a recommendation engine for stock name prediction based on user input queries, recommending similar stocks.</li>
+            </ul>
+            <p><strong>ML Engineering Senior Analyst</strong> | Accenture Technology, India | October 2022 - Present</p>
+            <ul>
+                <li>Currently working on building Generative AI use cases using commercialized models like Azure OpenAI/GOOGLE Palm 2 for Financial Services/Life Sciences clients.</li>
+                <li>Created 5 recommendation engines for a Retail Client in Vertex AI and deployed as end-to-end service in Google Cloud Platform.</li>
+                <li>Worked on Python automation for Regulatory and Compliance Report Generation and Processing and deployed as Cloud Functions.</li>
+            </ul>
+            <!-- Add other experiences if necessary -->
         </div>
-
-        <!-- Add more experience items as needed -->
-
-        <h2>Skills</h2>
-        <p>
-            Generative AI, Machine Learning, Deep Learning, Web Scraping, Python Programming, Golang Programming, Docker/Kubernetes, Terraform, Amazon Web Services, Google Cloud Services, Web Sockets, UNIX/LINUX fundamentals, CI/CD, Distributed Systems, ElasticSearch, Apache Solr, Torchserve, Langchain, Langsmith, LangServe
-        </p>
-
-        <h2>Certifications</h2>
-        <p>
-            Google Cloud Certified Associate Cloud Engineer
-        </p>
-
-        <h2>Education</h2>
-        <p>
-            Bachelor of Technology in Electronics and Communication Engineering<br>
-            Dr. APJ Abdul Kalam University, Uttar Pradesh | June 2015<br>
-            Honors: GPA (6.24/10)
-        </p>
+        <div class="education">
+            <h3>Education</h3>
+            <p>Bachelor of Technology in Electronics and Communication Engineering</p>
+            <p>Dr. APJ Abdul Kalam University, Uttar Pradesh | June 2015</p>
+            <!-- Add additional education details if applicable -->
+        </div>
+        <div class="skills">
+            <h3>Skills</h3>
+            <ul>
+                <li>Generative AI</li>
+                <li>Machine Learning</li>
+                <li>Deep Learning</li>
+                <li>Web Scraping</li>
+                <li>Python Programming</li>
+                <li>Docker/Kubernetes</li>
+                <li>Terraform</li>
+                <li>Amazon Web Services</li>
+                <li>Google Cloud Services</li>
+                <li>Web Sockets</li>
+                <li>UNIX/LINUX fundamentals</li>
+                <li>CI/CD</li>
+                <li>Distributed Systems</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
