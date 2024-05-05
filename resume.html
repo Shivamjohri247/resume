@@ -161,31 +161,26 @@
                 <li>CI/CD</li>
                 <li>Distributed Systems</li>
             </ul>
-               </div>
-        <!-- Download Button -->
-        <button class="download-btn" onclick="downloadPDF()">Download PDF</button>
-    </div>
+                <script>
+        function downloadAsWord() {
+            const content = document.querySelector('.container').innerHTML;
+            const header = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">' +
+                '<head><meta charset="utf-8"><title>Shivam Johri - Resume</title></head><body>';
+            const footer = '</body></html>';
+            const fullHtml = header + content + footer;
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
-<script>
-    async function convertToSearchablePDF(pdfBytes) {
-        const pdfDoc = await PDFLib.PDFDocument.load(pdfBytes);
-        await pdfDoc.flatten();
-        const pdfBytesWithTextLayer = await pdfDoc.save({ updateFieldAppearances: true });
-        return pdfBytesWithTextLayer;
-    }
+            const blob = new Blob(['\ufeff', fullHtml], {
+                type: 'application/msword'
+            });
 
-    async function downloadPDF() {
-        const element = document.querySelector('.container');
-        const { pdf } = await html2pdf().from(element).toPdf().output('arraybuffer'); // specify output type
-        const searchablePdfBytes = await convertToSearchablePDF(pdf);
-        const blob = new Blob([searchablePdfBytes], { type: 'application/pdf' });
-        const link = document.createElement('a');
-        link.href = window.URL.createObjectURL(blob);
-        link.download = 'Shivam_Johri_Resume_Searchable.pdf';
-        link.click();
-    }
-</script>
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Shivam_Johri_Resume.docx';
+            link.click();
+        }
+    </script>
+
+    <!-- Button to trigger download -->
+    <button onclick="downloadAsWord()">Download as Word</button>
 </body>
 </html>
