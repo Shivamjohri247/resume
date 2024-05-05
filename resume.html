@@ -174,8 +174,9 @@
             .from(element)
             .set({
                 filename: 'Shivam_Johri_Resume.pdf',
-                html2canvas: { enableText: true }, // Enable text extraction
-                jsPDF: { format: 'a4' } // Set PDF format to A4
+                margin: 10,
+                html2canvas: { dpi: 300, letterRendering: true, useCORS: true },
+                jsPDF: { format: 'a4', orientation: 'portrait' }
             })
             .save();
     }
