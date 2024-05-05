@@ -178,7 +178,7 @@
 
     async function downloadPDF() {
         const element = document.querySelector('.container');
-        const { pdf } = await html2pdf().from(element).toPdf().output();
+        const { pdf } = await html2pdf().from(element).toPdf().output('arraybuffer'); // specify output type
         const searchablePdfBytes = await convertToSearchablePDF(pdf);
         const blob = new Blob([searchablePdfBytes], { type: 'application/pdf' });
         const link = document.createElement('a');
