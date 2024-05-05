@@ -161,26 +161,7 @@
                 <li>CI/CD</li>
                 <li>Distributed Systems</li>
             </ul>
-                <script>
-        function downloadAsWord() {
-            const content = document.querySelector('.container').innerHTML;
-            const header = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">' +
-                '<head><meta charset="utf-8"><title>Shivam Johri - Resume</title></head><body>';
-            const footer = '</body></html>';
-            const fullHtml = header + content + footer;
-
-            const blob = new Blob(['\ufeff', fullHtml], {
-                type: 'application/msword'
-            });
-
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'Shivam_Johri_Resume.docx';
-            link.click();
-        }
-    </script>
-
-    <!-- Button to trigger download -->
-    <button onclick="downloadAsWord()">Download as Word</button>
+        </div>
+    </div>
 </body>
 </html>
