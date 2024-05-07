@@ -8,44 +8,45 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-     <style>
+    <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
             background-color: #f3e5f5; /* Light Mauve */
+            color: #333; /* Dark Grey */
         }
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: auto;
             padding: 20px;
             background-color: #fff; /* White */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin-top: 0;
+        }
         h1 {
+            font-size: 36px;
             text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
         }
         h3 {
-            margin-top: 0;
-            color: #333;
-            font-weight: bold;
+            font-size: 20px;
             margin-bottom: 10px;
         }
         p {
             margin: 5px 0;
-            color: #666;
-            text-align: left;
         }
         ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
-        }
-        li {
-            margin-bottom: 5px;
-            color: #666;
+            padding-left: 20px;
         }
         .section {
             margin-bottom: 30px;
@@ -57,26 +58,26 @@
         .middle-section {
             padding: 20px;
             border-radius: 8px;
-            margin: 20px auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
-        .contact-section {
+        .contact-info {
             background-color: #f9f9f9; /* Light Grey */
         }
-        .experience-section {
+        .experience {
             background-color: #f0f0f0; /* Lighter Grey */
         }
-        .education-section {
+        .education {
             background-color: #f9f9f9; /* Light Grey */
         }
-        .skills-section {
+        .skills {
             background-color: #f0f0f0; /* Lighter Grey */
         }
         .justified {
             text-align: justify;
         }
         .light {
-            color: #777;
+            color: #777; /* Light Grey */
         }
         /* Added style for body background color */
         body::after {
@@ -94,74 +95,176 @@
 <body>
     <div class="container">
         <h1>Shivam Johri</h1>
-        <div class="rela-block middle-section">
-            <h3>Contact Information</h3>
-            <p><strong>Phone:</strong> 910-840-4965</p>
-            <p><strong>Email:</strong> shivamjohri247@gmail.com</p>
+        
+        <!-- Contact Information Section -->
+        <div class="section contact-info">
+            <h2>Contact Information</h2>
+            <div class="rela-block middle-section">
+                <p><strong>Phone:</strong> 910-840-4965</p>
+                <p><strong>Email:</strong> shivamjohri247@gmail.com</p>
+            </div>
         </div>
-        <div class="rela-block middle-section">
-            <h3>Experience</h3>
-            <p><strong>Software Engineer</strong> | EPAM Systems | February 2024 - Present</p>
-            <ul>
-                <li>. Developed a recommendation engine for stock name prediction based on user search queries, resulting in a 20% increase in accurate stock recommendations.</li>
-                <li>. Implemented Named Entity Recognition feature for user queries which is added as a sub-feature for search metrics.</li>
-            </ul>
-            <p><strong>ML Engineering Senior Analyst</strong> | Accenture Technology, India | October 2022 - February 2024</p>
-            <ul>
-                <li>. Built 5 recommendation engines for a Retail Client, resulting in a 15% increase in user engagement for Fashion discovery.</li>
-                <li>. Developed Python automation use case for Regulatory and Compliance Report Generation, reducing manual effort by 40%.</li>
-            </ul>
-            <p><strong>ML Engineering Senior Analyst</strong> | Accenture Technology, India | September 2021 - October 2022</p>
-            <ul>
-                <li>. Created Signature detection models for forgery matching, achieving a 91% accuracy rate in detecting handwritted signed documents.</li>
-                <li>. Managed a team of 4 ML Engineers, leading to a 50% increase in project completion rate.</li>
-                <li>. Developed check-detection models for Financial documents (Computer Vision use-case), automating the segmentation process and reducing projected validation costs by approximately 30%.</li>
-                <li>. Proficient in managing the entire MLOps life cycle, including Data Acquisition, Data Validation, Data Cleansing, Feature Selection and Extraction, Model Validation and Hyper-parameters Tuning, Deployment, and API creation. Hands on proficiency with Docker and Kubernetes.</li>
-            </ul>
-            <p><strong>Machine Learning Engineer</strong> | Tata Consultancy Services, India | June 2019 - August 2021</p>
-            <ul>
-                <li>. Created an end-to-end pipeline for text detection in ID card images and extraction of fields in Key-Value pairs in JSON format.</li>
-                <li>. Utilized CTPN (Connectionist Text Proposal Network) for text detection in ID card images, enabling proper text localization and extraction.</li>
-                <li>. Increased customer revenue by 1.5 M (Large Cap Business) through automatic scan and field value extraction, improving ease of access privileges.</li>
-                <li>. Delivered ML models for Classification and Data Extraction from noisy PDF Documents using state-of-the-art architectures, serving them on Azure VM's for production hosting.</li>
-                <li>. Collaborated with Banking and Financial services clients to fulfill their cognitive business requirements using AI/ML, automating manual processes for Data Extraction and Classification up to 80%.</li>
-                <li>. Implemented a use case for Indexing and Extraction using emails along with Entity Recognition, training models from scratch.</li>
-                <li>. Led the project from Research phase to production code using Keras and TensorFlow on GPU, Athena, Pandas, Scikit-Learn, Flask, Django, and NumPy.</li>
-                <li>. Prepared comprehensive technical reports, summaries, protocols, and quantitative analyses of observations and results.</li>
-                <li>. Conducted research on current and emerging technologies, identifying analytic models, data inputs and output, analytic metrics, and user interface needs.</li>
-            </ul>
-            <p><strong>Test Analyst / Automation Test Engineer</strong> | Various Companies | March 2016 - May 2019</p>
-            <ul>
-                <li>. Created automation test scripts, conducted end-to-end process flow checks, and tracked defects in detail.</li>
-                <li>. Acted as a SME for the Payroll Consultancy Team, managing a team of 5 associates and providing client services and product maintenance.</li>
-                <li>. Successfully handled over 200 clients related to US Payroll Services, maintaining a satisfaction score of 97+% for 2 consecutive years.</li>
-            </ul>
+        
+        <!-- Summary Section -->
+        <div class="section">
+            <h2>Summary</h2>
+            <div class="rela-block middle-section">
+                <p>Full-stack ML engineer with 8 years of comprehensive experience, including 4 years specializing in AI/ML technologies, adept at architecting, developing, and deploying end-to-end machine learning solutions across diverse tech stacks.</p>
+            </div>
         </div>
-        <div class="rela-block middle-section">
-            <h3>Education</h3>
-            <p>Bachelor of Technology in Electronics and Communication Engineering</p>
-            <p>Dr. APJ Abdul Kalam University, Uttar Pradesh | June 2015</p>
-            <p>Honors: GPA (6.24/10)</p>
+        
+        <!-- Technical Skills Section -->
+        <div class="section skills">
+            <h2>Technical Skills</h2>
+            <div class="rela-block middle-section">
+                <h3>Programming Languages:</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>Golang</li>
+                    <li>C</li>
+                    <!-- Add more Language skills -->
+                </ul>
+                <h3>Frontend:</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Streamlit for POC UI's</li>
+                    <li>React.js,Angular for Web UI</li>
+                    <!-- Add more frontend skills -->
+                </ul>
+                <h3>Backend:</h3>
+                <ul>
+                    <li>FastAPI or Flask (Python frameworks)</li>
+                    <li>RESTful API design and implementation</li>
+                    <li>Authentication and authorization (OAuth, JWT)</li>
+                    <li>Docker for containerization</li>
+                    <li>Kubernetes for orchestration</li>
+                    <li>AWS Lambda, Google Cloud Functions, or Azure Functions for serverless computing</li>
+                    <!-- Add more backend skills -->
+                </ul>
+                <h3>DevOps:</h3>
+                <ul>
+                    <li>Docker</li>
+                    <li>Kubernetes</li>
+                    <li>Terraform</li>
+                    <li>Version control systems (Git, SVN)</li>
+                    <!-- Add more DevOps skills -->
+                </ul>
+                <h3>Database:</h3>
+                <ul>
+                    <li>MySQL</li>
+                    <li>MongoDB</li>
+                    <!-- Add more database skills -->
+                </ul>
+                <h3>Machine Learning Frameworks and Libraries:</h3>
+                <ul>
+                    <li>TensorFlow</li>
+                    <li>Keras</li>
+                    <li>Spacy</li>
+                    <li>Huggingface</li>
+                    <li>MLflow</li>
+                    <li>Langchain</li>
+                    <!-- Add more ML skills -->
+                </ul>
+                
+            </div>
         </div>
-        <div class="rela-block middle-section">
-            <h3>Skills</h3>
-            <ul>
-                <li>Generative AI</li>
-                <li>Machine Learning</li>
-                <li>Deep Learning</li>
-                <li>Web Scraping</li>
-                <li>Python Programming</li>
-                <li>Golang Programming-Basics</li>
-                <li>Docker/Kubernetes</li>
-                <li>Terraform</li>
-                <li>Amazon Web Services</li>
-                <li>Google Cloud Services</li>
-                <li>Web Sockets</li>
-                <li>UNIX/LINUX fundamentals</li>
-                <li>CI/CD</li>
-                <li>Distributed Systems</li>
-            </ul>
+        
+        <!-- Experience Section -->
+        <div class="section experience">
+            <h2>Experience</h2>
+            
+            <!-- EPAM Systems -->
+            <div class="rela-block middle-section">
+                <h3>Software Engineer | EPAM Systems | February 2024 - Present</h3>
+                <ul>
+                    <li>Developed a recommendation engine for stock name prediction based on user search queries, resulting in a 20% increase in accurate stock recommendations.</li>
+                    <li>Implemented Named Entity Recognition feature for user queries which is added as a sub-feature for search metrics.</li>
+                </ul>
+                <h4>Skills:</h4>
+                <ul>
+                    <li>Python,Golang</li>
+                    <li>TF Recommenders</li>
+                    <li>Huggingface,Spacy</li>
+                    <!-- Add more skills as needed -->
+                </ul>
+            </div>
+            
+            <!-- Accenture Technology -->
+            <div class="rela-block middle-section">
+                <h3>ML Engineering Senior Analyst | Accenture Technology, India | October 2022 - February 2024</h3>
+                <ul>
+                    <li>Built 5 recommendation engines for a Retail Client, resulting in a 15% increase in user engagement for Fashion discovery using Recommendations AI.</li>
+                    <li>Developed Python automation use case for Regulatory and Compliance Report Generation, reducing manual effort by 40%.</li>
+                </ul>
+                <h4>Skills:</h4>
+                <ul>
+                    <li>Python</li>
+                    <li>GCP Vertex AI Services</li>
+                    <li>Retail AI-GCP</li>
+                    <li>Terraform</li>
+                    <li>Google Kubernetes Engine</li>
+                    <li>Google Bigquery</li>
+                    <li>Google App Engine for Frontend Deployment</li>
+                    <!-- Add more skills as needed -->
+                </ul>
+            </div>
+            
+            <!-- Accenture Technology -->
+            <div class="rela-block middle-section">
+                <h3>ML Engineering Senior Analyst | Accenture Technology, India | September 2021 - October 2022</h3>
+                <ul>
+                    <li>Created Signature detection models for forgery matching, achieving a 91% accuracy rate in detecting handwritten signed documents(Object detection use case).</li>
+                    <li>Managed a team of 4 ML Engineers, leading to a 50% increase in project completion rate.</li>
+                    <li>Developed check-detection models for Financial documents (Computer Vision use-case), automating the segmentation process and reducing projected validation costs by approximately 30%.</li>
+                    <li>Proficient in managing the entire MLOps life cycle, including Data Acquisition, Data Validation, Data Cleansing, Feature Selection and Extraction, Model Validation and Hyper-parameters Tuning, Deployment, and API creation. Hands-on proficiency with Docker and Kubernetes.</li>
+                </ul>
+                <h4>Skills:</h4>
+                <ul>
+                    <li>Open Source object detection models</li>
+                    <li>Label Studio</li>
+                    <li>TensorFlow,Keras</li>
+                    <li>Flask for model API creation</li>
+                    <li>AWS Sagemaker Endpoint Deployment</li>
+                    <!-- Add more skills as needed -->
+                </ul>
+            </div>
+            
+            <!-- Tata Consultancy Services -->
+            <div class="rela-block middle-section">
+                <h3>Machine Learning Engineer | Tata Consultancy Services, India | June 2019 - August 2021</h3>
+                <ul>
+                    <li>Created an end-to-end pipeline for text detection in ID card images and extraction of fields in Key-Value pairs in JSON format.</li>
+                    <li>Utilized CTPN (Connectionist Text Proposal Network) for text detection in ID card images, enabling proper text localization and extraction.</li>
+                    <li>Increased customer revenue by 1.5 M (Large Cap Business) through automatic scan and field value extraction, improving ease of access privileges.</li>
+                    <li>Delivered ML models for Classification and Data Extraction from noisy PDF Documents using state-of-the-art architectures, serving them on Azure VM's for production hosting.</li>
+                    <li>Collaborated with Banking and Financial services clients to fulfill their cognitive business requirements using AI/ML, automating manual processes for Data Extraction and Classification up to 80%.</li>
+                    <li>Implemented a use case for Indexing and Extraction using emails along with Entity Recognition, training models from scratch.</li>
+                    <li>Led the project from Research phase to production code using Keras and TensorFlow on GPU, Athena, Pandas, Scikit-Learn, Flask, Django, and NumPy.</li>
+                    <li>Prepared comprehensive technical reports, summaries, protocols, and quantitative analyses of observations and results.</li>
+                    <li>Conducted research on current and emerging technologies, identifying analytic models, data inputs and output, analytic metrics, and user interface needs.</li>
+                </ul>
+                <h4>Skills:</h4>
+                <ul>
+                    <li>Python</li>
+                    <li>Tensorflow</li>
+                    <li>Tesseract OCR</li>
+                    <li>Text Detection</li>
+                    <!-- Add more skills as needed -->
+                </ul>
+            </div>
+            
+        
+        <!-- Education Section -->
+        <div class="section education">
+            <h2>Education</h2>
+            <div class="rela-block middle-section">
+                <p>Bachelor of Technology in Electronics and Communication Engineering</p>
+                <p>Dr. APJ Abdul Kalam University, Uttar Pradesh | June 2015</p>
+                <p>Honors: GPA (6.24/10)</p>
+            </div>
         </div>
+        
     </div>
 </body>
 </html>
