@@ -38,7 +38,7 @@ const Hero = () => {
                     <div className="mb-6 overflow-hidden-y">
                         <div className="hero-line translate-y-[110%] opacity-0 flex items-center gap-3">
                             <span className="w-12 h-[1px] bg-[#E4C441]"></span>
-                            <span className="text-xs uppercase tracking-[0.25em] font-medium text-[#E4C441]">Principal AI Engineer</span>
+                            <span className="text-xs uppercase tracking-[0.25em] font-medium text-[#E4C441]">Lead AI Engineer</span>
                         </div>
                     </div>
 
