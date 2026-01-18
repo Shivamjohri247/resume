@@ -1,84 +1,236 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
     const containerRef = useRef(null);
+    const nameRef = useRef(null);
+    const subtitleRef = useRef(null);
+    const ctaRef = useRef(null);
+    const scrollIndicatorRef = useRef(null);
+    const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+    const [isMounted, setIsMounted] = useState(false);
+
+    // Handle component mount
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    // Handle scroll indicator visibility
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100) {
+                setShowScrollIndicator(false);
+            } else {
+                setShowScrollIndicator(true);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Scroll to contact section
+    const scrollToContact = (e) => {
+        e.preventDefault();
+        const footer = document.querySelector('footer');
+        if (footer) {
+            footer.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    // Scroll down handler
+    const scrollDown = () => {
+        const nextSection = document.querySelector('#experience');
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     useGSAP(() => {
-        const tl = gsap.timeline({ delay: 2.2 }); // Wait for preloader
+        if (!isMounted) return;
 
-        // Text Stagger
-        tl.to(".hero-line", { y: 0, opacity: 1, duration: 1.5, stagger: 0.15, ease: "power4.out" });
+        const tl = gsap.timeline();
 
-        // Image Reveal
-        tl.to(".hero-img-overlay", { height: "0%", duration: 1.5, ease: "expo.inOut" }, "-=1.2")
-            .to(".hero-img", { scale: 1, duration: 1.5, ease: "power2.out" }, "-=1.5")
-            .from(".hero-badge", { autoAlpha: 0, y: 20, duration: 1, ease: "power3.out" }, "-=0.5");
+        // Animate name character by character reveal
+        const nameChars = nameRef.current?.querySelectorAll('.char');
+        if (nameChars) {
+            tl.fromTo(
+                nameChars,
+                {
+                    y: '100%',
+                    opacity: 0
+                },
+                {
+                    y: '0%',
+                    opacity: 1,
+                    duration: 0.8,
+                    stagger: 0.03,
+                    ease: 'power2.out'
+                }
+            );
+        }
 
-        // Parallax on Scroll
-        gsap.to(".hero-img-container", {
-            yPercent: 30,
-            ease: "none",
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top",
-                end: "bottom top",
-                scrub: true
-            }
+        // Animate subtitle
+        tl.fromTo(
+            subtitleRef.current,
+            {
+                y: 30,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power2.out'
+            },
+            '-=0.4'
+        );
+
+        // Animate CTA button
+        tl.fromTo(
+            ctaRef.current,
+            {
+                y: 20,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                ease: 'power2.out'
+            },
+            '-=0.3'
+        );
+
+        // Animate scroll indicator
+        tl.fromTo(
+            scrollIndicatorRef.current,
+            {
+                y: 20,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+                ease: 'power2.out'
+            },
+            '-=0.2'
+        );
+
+        // Scroll indicator bounce animation
+        gsap.to(scrollIndicatorRef.current?.querySelector('.scroll-icon'), {
+            y: 8,
+            duration: 1.2,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power1.inOut',
+            delay: 0.5
         });
-    }, { scope: containerRef });
+
+    }, { scope: containerRef, dependencies: [isMounted] });
+
+    // Split text into characters for animation
+    const splitText = (text) => {
+        return text.split('').map((char, index) => (
+            <span key={index} className="char inline-block">
+                {char === ' ' ? '\u00A0' : char}
+            </span>
+        ));
+    };
 
     return (
-        <section ref={containerRef} className="relative pt-24 pb-16 px-6 min-h-[85vh] flex flex-col justify-center max-w-[1600px] mx-auto overflow-hidden">
-            <div className="grid lg:grid-cols-12 gap-16 items-center">
+        <section
+            ref={containerRef}
+            className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 overflow-hidden bg-background"
+            style={{ opacity: isMounted ? 1 : 0, transition: 'opacity 0.3s ease-in' }}
+        >
 
-                {/* Typography Side */}
-                <div className="lg:col-span-7 z-10">
-                    <div className="mb-6 overflow-hidden-y">
-                        <div className="hero-line translate-y-[110%] opacity-0 flex items-center gap-3">
-                            <span className="w-12 h-[1px] bg-[#E4C441]"></span>
-                            <span className="text-xs uppercase tracking-[0.25em] font-medium text-[#E4C441]">Lead AI Engineer</span>
-                        </div>
-                    </div>
+            {/* Background Grid */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="w-full h-full" style={{
+                    backgroundImage: `
+                        linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '80px 80px'
+                }} />
+            </div>
 
-                    {/* FIX: Increased line-height (leading-tight) and added padding (pb-2) to the masks 
-            to prevent 'g', 'y' and other descenders from being chipped off.
-          */}
-                    <h1 className="font-serif text-[3.5rem] md:text-[5rem] lg:text-[6rem] leading-tight tracking-tight text-[#111] mb-8">
-                        <div className="overflow-hidden-y pb-2 -mb-2"><div className="hero-line translate-y-[110%] opacity-0">Engineering</div></div>
-                        <div className="overflow-hidden-y pb-2 -mb-2"><div className="hero-line translate-y-[110%] opacity-0">Autonomous</div></div>
-                        <div className="overflow-hidden-y pb-2 -mb-2"><div className="hero-line translate-y-[110%] opacity-0 italic text-[#555]">Agents</div></div>
-                    </h1>
+            {/* Hero Content */}
+            <div className="relative z-10 text-center max-w-7xl mx-auto">
+                {/* Massive Name */}
+                <h1
+                    ref={nameRef}
+                    className="font-sans font-black text-massive leading-[0.9] tracking-tighter text-text-primary mb-8 overflow-hidden"
+                    style={{
+                        fontFamily: 'Inter, sans-serif',
+                        textTransform: 'uppercase',
+                        letterSpacing: '-0.04em'
+                    }}
+                >
+                    {splitText('Shivam Johri')}
+                </h1>
 
-                    <div className="max-w-md overflow-hidden-y">
-                        <p className="hero-line translate-y-[110%] opacity-0 font-sans text-lg text-[#555] leading-relaxed mb-8">
-                            Engineering the backbone of modern AI. From collaborative multi-agent workflows to robust MLOps infrastructure, I build systems that are designed to scale.
-                        </p>
-                    </div>
-                </div>
+                {/* Subtitle */}
+                <p
+                    ref={subtitleRef}
+                    className="font-mono text-lg md:text-xl lg:text-2xl text-text-secondary tracking-widest uppercase"
+                    style={{
+                        fontFamily: 'JetBrains Mono, monospace',
+                        letterSpacing: '0.2em'
+                    }}
+                >
+                    AI Engineer • MLOps • Distributed Systems
+                </p>
 
-                {/* Image Side - Cinematic Reveal */}
-                <div className="lg:col-span-5 relative">
-                    <div className="hero-img-container relative w-[90%] mx-auto aspect-[4/5] overflow-hidden rounded-sm">
-                        <div className="hero-img-overlay absolute inset-0 bg-[#F9F8F4] z-20"></div> {/* Curtain */}
-                        {/* PROFILE PICTURE */}
-                        <img
-                            src="Gemini_Generated_Image_yu8y15yu8y15yu8y.png"
-                            alt="Shivam Johri"
-                            className="hero-img w-full h-full object-cover scale-125 origin-center grayscale hover:grayscale-0 transition-all duration-700"
-                        />
-                        {/* Floating Badge */}
-                        <div className="hero-badge absolute bottom-6 left-6 z-30 bg-white/90 backdrop-blur-md p-4 max-w-[150px] border border-white/20 shadow-lg">
-                            <p className="text-[10px] uppercase tracking-wider font-semibold text-[#111]">Status</p>
-                            <div className="flex items-center gap-2 mt-1">
-                                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                                <span className="text-xs font-medium text-[#555]">Open for Consults</span>
-                            </div>
-                        </div>
-                    </div>
+                {/* CTA Button */}
+                <div ref={ctaRef} className="mt-12">
+                    <a
+                        href="#contact"
+                        onClick={scrollToContact}
+                        className="group inline-flex items-center justify-center gap-3 font-sans text-sm font-semibold uppercase tracking-widest text-text-primary border border-text-primary/30 px-10 py-4 hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background min-w-[160px] min-h-[56px]"
+                        style={{
+                            borderRadius: '0',
+                            fontFamily: 'Inter, sans-serif'
+                        }}
+                        aria-label="Scroll to contact section"
+                    >
+                        Let's Talk
+                        <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </a>
                 </div>
             </div>
+
+            {/* Scroll Indicator */}
+            {showScrollIndicator && (
+                <div
+                    ref={scrollIndicatorRef}
+                    className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 cursor-pointer group"
+                    onClick={scrollDown}
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Scroll down to see more content"
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            scrollDown();
+                        }
+                    }}
+                >
+                    <span className="font-mono text-xs uppercase tracking-widest text-text-muted group-hover:text-text-primary transition-colors duration-300">
+                        Scroll
+                    </span>
+                    <div className="scroll-icon">
+                        <ArrowDown
+                            className="w-5 h-5 text-text-muted group-hover:text-text-primary transition-colors duration-300"
+                            strokeWidth={2}
+                        />
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

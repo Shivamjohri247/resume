@@ -1,0 +1,19 @@
+# Project Images Directory
+
+Place your project showcase images here. Supported formats:
+- JPG/JPEG
+- PNG
+- WebP
+
+Recommended image specifications:
+- Dimensions: 1200x800px (3:2 aspect ratio)
+- File size: Under 500KB per image
+- Format: WebP for optimal performance
+
+Image naming convention (matching WallList.jsx):
+- suzega.jpg
+- epam.jpg
+- accenture.jpg
+- tcs.jpg
+
+Placeholder gradients are currently in use until actual images are added.

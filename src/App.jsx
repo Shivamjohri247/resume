@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -6,18 +6,23 @@ import Lenis from 'lenis';
 
 // Components
 import GlobalStyles from './components/GlobalStyles';
-import Preloader from './components/Preloader';
-import Navbar from './components/Navbar';
+import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
-import ExperienceList from './components/ExperienceList';
+import WallList from './components/WallList';
 import Philosophy from './components/Philosophy';
 import StickyExpertise from './components/StickyExpertise';
+import About from './components/About';
 import Footer from './components/Footer';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const App = () => {
+    const [isMounted, setIsMounted] = useState(false);
+
     useEffect(() => {
+        // Mark app as mounted
+        setIsMounted(true);
+
         const lenis = new Lenis({
             duration: 1.5,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -41,16 +46,16 @@ const App = () => {
     }, []);
 
     return (
-        <div className="antialiased min-h-screen">
+        <div className="antialiased min-h-screen" style={{ opacity: isMounted ? 1 : 0, transition: 'opacity 0.4s ease-in' }}>
             <GlobalStyles />
-            <Preloader />
-            <Navbar />
+            <CustomCursor />
 
-            <main>
+            <main id="main-content" role="main" aria-label="Main content">
                 <Hero />
-                <ExperienceList />
+                <WallList />
                 <Philosophy />
                 <StickyExpertise />
+                <About />
             </main>
 
             <Footer />
