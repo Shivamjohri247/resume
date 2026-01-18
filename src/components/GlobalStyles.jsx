@@ -2,62 +2,148 @@ import React from 'react';
 
 const GlobalStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-    
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    /* CSS Variables - Centralized Design System */
     :root {
-      --bg-color: #F9F8F4;
-      --text-main: #111111;
-      --text-muted: #555555;
-      --accent: #E4C441;
+      /* Background Colors */
+      --color-background: #0a0a0a;
+      --color-surface: #111111;
+
+      /* Text Colors - High Contrast Hierarchy */
+      --color-text-primary: #f5f5f5;
+      --color-text-secondary: #a3a3a3;
+      --color-text-muted: #525252;
+
+      /* Accent Colors - Pure White for Interactions */
+      --color-accent: #ffffff;
+      --color-accent-hover: #e5e5e5;
+
+      /* Border Colors */
+      --color-border-subtle: rgba(255, 255, 255, 0.1);
+      --color-border-default: rgba(255, 255, 255, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
+      background-color: var(--color-background);
+      color: var(--color-text-primary);
       overflow-x: hidden;
       width: 100%;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       margin: 0;
+      padding: 0;
     }
 
-    /* Hide scrollbar for cleaner look */
+    /* Custom Scrollbar - Dark Theme */
     ::-webkit-scrollbar {
       width: 8px;
     }
     ::-webkit-scrollbar-track {
-      background: var(--bg-color);
+      background: var(--color-background);
     }
     ::-webkit-scrollbar-thumb {
-      background: #ccc;
+      background: var(--color-text-muted);
       border-radius: 4px;
     }
-
-    .font-serif { font-family: 'Playfair Display', serif; }
-    .font-sans { font-family: 'Inter', sans-serif; }
-    
-    .overflow-hidden-y { overflow-y: hidden; }
-    
-    /* Preloader Styles */
-    .preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: #111;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-text-secondary);
     }
-    
+
+    /* Typography */
+    .font-sans {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .overflow-hidden-y {
+      overflow-y: hidden;
+    }
+
     /* Image Reveal Mask */
     .image-reveal-container {
       position: relative;
       overflow: hidden;
     }
     .image-reveal-img {
-      transform: scale(1.2); /* Start zoomed in */
+      transform: scale(1.2);
+    }
+
+    /* Focus Visible Styles for Accessibility */
+    :focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    /* Screen Reader Only Content */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Visible on focus for accessibility */
+    .sr-only-focusable:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: inherit;
+      margin: inherit;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+
+    /* Skip to content link styling */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-accent);
+      color: var(--color-background);
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 10000;
+      font-weight: 600;
+      transition: top 0.3s;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Selection Styles */
+    ::selection {
+      background-color: var(--color-accent);
+      color: var(--color-background);
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
   `}</style>
 );

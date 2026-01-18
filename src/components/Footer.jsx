@@ -1,38 +1,77 @@
 import React from 'react';
-import { ArrowUpRight, Linkedin, Mail, Brain } from 'lucide-react';
+import { ArrowUpRight, Linkedin, Mail, Brain, Github } from 'lucide-react';
 
 const Footer = () => (
-    <footer className="bg-[#111] text-white pt-32 pb-12 px-6">
-        <div className="max-w-[1600px] mx-auto">
-            <div className="grid md:grid-cols-2 gap-20 mb-32">
-                <div>
-                    <h2 className="font-serif text-[4rem] md:text-[6rem] leading-[0.9]">
-                        Let's build <br /> the <span className="text-[#E4C441] italic">Future.</span>
-                    </h2>
-                </div>
-                <div className="flex flex-col justify-end items-start md:items-end">
-                    <a
-                        href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ10ZHJaZlUjCGjvtJDFoRM5jhYh9ZqLgKCiDleMvre85tCLfkMU6J7Umxig0PZlQ0rhJ8FCiqZ4?gv=true"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="group flex items-center gap-4 text-xl border border-white/20 px-8 py-4 rounded-full hover:bg-[#E4C441] hover:text-black hover:border-[#E4C441] transition-all duration-300"
-                    >
-                        Book an appointment <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </a>
-                </div>
+    <footer className="bg-surface text-text-primary relative mt-auto">
+        <div className="max-w-[1600px] mx-auto px-6 py-16 md:py-24">
+            {/* Main CTA Section */}
+            <div className="text-center mb-16">
+                <h2 className="font-sans text-5xl md:text-7xl lg:text-8xl leading-tight mb-8">
+                    LET'S <span className="text-accent italic font-bold">TALK</span>
+                </h2>
+                <p className="text-text-secondary text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                    Have a project in mind? Let's create something extraordinary together.
+                </p>
+
+                {/* Primary CTA Button - Mailto Link */}
+                <a
+                    href="mailto:shivamjohri247@gmail.com"
+                    className="group inline-flex items-center gap-3 text-xl md:text-2xl font-bold border-2 border-accent text-accent px-10 py-5 rounded-full hover:bg-accent hover:bg-background transition-all duration-300"
+                >
+                    Get In Touch
+                    <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" size={24} />
+                </a>
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8 text-sm text-white/40">
-                <p>© 2025 Shivam Johri. All rights reserved.</p>
-                <div className="flex gap-6 mt-4 md:mt-0">
-                    <a href="https://linkedin.com/in/shivam-johri" className="flex items-center gap-2 text-sm font-medium border border-white/20 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300">
-                        <Linkedin size={18} /> LinkedIn
+            {/* Social Links & Copyright */}
+            <div className="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-text-muted/30 pt-8">
+                {/* Copyright */}
+                <p className="text-text-muted text-sm font-medium">
+                    © 2025 Shivam Johri. All rights reserved.
+                </p>
+
+                {/* Social Links */}
+                <div className="flex flex-wrap justify-center gap-4">
+                    <a
+                        href="https://linkedin.com/in/shivam-johri"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-2 text-sm font-semibold border border-text-muted/50 px-6 py-3 rounded-full hover:bg-accent hover:bg-background hover:border-accent transition-all duration-300"
+                        aria-label="LinkedIn Profile"
+                    >
+                        <Linkedin size={18} className="group-hover:scale-110 transition-transform duration-300" />
+                        LinkedIn
                     </a>
-                    <a href="https://www.kaggle.com/shivamjohri" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium border border-white/20 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300">
-                        <Brain size={18} /> Kaggle
+
+                    <a
+                        href="https://github.com/shivamjohri"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-2 text-sm font-semibold border border-text-muted/50 px-6 py-3 rounded-full hover:bg-accent hover:bg-background hover:border-accent transition-all duration-300"
+                        aria-label="GitHub Profile"
+                    >
+                        <Github size={18} className="group-hover:scale-110 transition-transform duration-300" />
+                        GitHub
                     </a>
-                    <a href="mailto:shivamjohri247@gmail.com" className="flex items-center gap-2 text-sm font-medium border border-white/20 px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300">
-                        <Mail size={18} /> Email
+
+                    <a
+                        href="https://www.kaggle.com/shivamjohri"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-2 text-sm font-semibold border border-text-muted/50 px-6 py-3 rounded-full hover:bg-accent hover:bg-background hover:border-accent transition-all duration-300"
+                        aria-label="Kaggle Profile"
+                    >
+                        <Brain size={18} className="group-hover:scale-110 transition-transform duration-300" />
+                        Kaggle
+                    </a>
+
+                    <a
+                        href="mailto:shivamjohri247@gmail.com"
+                        className="group flex items-center gap-2 text-sm font-semibold border border-text-muted/50 px-6 py-3 rounded-full hover:bg-accent hover:bg-background hover:border-accent transition-all duration-300"
+                        aria-label="Send Email"
+                    >
+                        <Mail size={18} className="group-hover:scale-110 transition-transform duration-300" />
+                        Email
                     </a>
                 </div>
             </div>
