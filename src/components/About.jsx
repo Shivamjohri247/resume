@@ -105,6 +105,7 @@ const About = () => {
                                 src={`${import.meta.env.BASE_URL}images/profile-photo.png`}
                                 alt="Shivam Johri - Fullstack Technical Lead specializing in AI Systems"
                                 className="w-full h-full object-cover aspect-square"
+                                style={{transform: 'scale(1.1)', objectPosition: 'center center'}}
                                 loading="eager"
                             />
                         </div>
