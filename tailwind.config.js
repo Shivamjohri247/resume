@@ -30,8 +30,8 @@ export default {
       },
 
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Silvana', 'sans-serif'],
+        mono: ['Silvana', 'monospace'],
       },
 
       fontSize: {

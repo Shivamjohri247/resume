@@ -31,7 +31,7 @@
   body {
     background-color: var(--color-background);
     color: var(--color-text-primary);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Silvana', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
@@ -123,4 +123,29 @@ img[src*="/images/logos/"] {
 .group:hover .company-logo {
   transform: scale(1.05);
   transition: transform 0.3s ease;
+}
+
+/* 3D Flip Card Effects */
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Flip card hover effect */
+.about-stat .flip-card,
+.phil-card .flip-card {
+  transform: rotateY(0deg);
+}
+
+.about-stat:hover .flip-card,
+.phil-card:hover .flip-card {
+  transform: rotateY(180deg);
 }

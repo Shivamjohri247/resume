@@ -78,7 +78,8 @@ const About = () => {
         <section
             id="about"
             ref={containerRef}
-            className="py-24 lg:py-32 px-6 max-w-[1600px] mx-auto bg-background relative"
+            className="py-24 lg:py-32 px-6 max-w-[1600px] mx-auto relative"
+            style={{backgroundColor: '#0a0a0a'}}
         >
             {/* Section Label */}
             <div className="mb-16 text-center">
@@ -98,7 +99,7 @@ const About = () => {
                         className="relative group"
                     >
                         {/* Image Container with Decorative Border */}
-                        <div className="relative z-10 rounded-2xl overflow-hidden border-2 border-border-default hover:border-border-subtle transition-all duration-500">
+                        <div className="relative z-10 rounded-2xl overflow-hidden border-2 border-border-default hover:border-accent/50 transition-all duration-500">
                             {/* Profile Image */}
                             <img
                                 src={`${import.meta.env.BASE_URL}images/profile-photo.png`}
@@ -124,38 +125,209 @@ const About = () => {
                             <span className="text-accent">Distributed Computing</span>. With deep expertise in building production-grade AI infrastructure, I bridge the gap between cutting-edge research and real-world deployment.
                         </p>
 
-                        <p className="text-text-secondary leading-relaxed">
+                        <p className="text-text-secondary leading-relaxed text-lg">
                             My work focuses on creating deterministic systems that embrace stochastic intelligence—building guardrails, RAG pipelines, and multi-agent workflows that are reliable, scalable, and deeply integrated into business logic.
                         </p>
 
-                        <p className="text-text-secondary leading-relaxed">
+                        <p className="text-text-secondary leading-relaxed text-lg">
                             From Kubernetes-native deployments to real-time data processing at scale, I architect solutions that don't just work in notebooks—they thrive in production.
                         </p>
                     </div>
 
                     {/* Stats Grid */}
                     <div className="about-stats grid grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div className="about-stat p-4 lg:p-6 bg-surface border border-border-default rounded-lg hover:border-border-subtle transition-all duration-300 text-center">
-                            <Calendar className="mx-auto mb-2 text-accent" size={20} />
-                            <div className="text-2xl lg:text-3xl font-sans text-text-primary">10+</div>
-                            <div className="text-xs text-text-muted mt-1">Years Experience</div>
+                        {/* Card 1 - Years Experience */}
+                        <div className="about-stat group" style={{perspective: '1000px'}}>
+                            <div style={{
+                                position: 'relative',
+                                minHeight: '140px',
+                                transformStyle: 'preserve-3d',
+                                transition: 'transform 0.6s'
+                            }} className="group-hover:rotate-y-180">
+                                {/* Front Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    padding: '1rem 1.5rem',
+                                    background: '#0a0a0a',
+                                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                                    borderRadius: '0.5rem',
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <Calendar className="mb-2" style={{color: '#ffffff'}} size={20} />
+                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#f5f5f5'}}>10+</div>
+                                    <div className="text-xs mt-1" style={{color: '#525252'}}>Years Experience</div>
+                                </div>
+                                {/* Back Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    padding: '1rem 1.5rem',
+                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    borderRadius: '0.5rem',
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden',
+                                    transform: 'rotateY(180deg)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <Calendar className="mb-2" style={{color: '#d4b8b8'}} size={20} />
+                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#e8d0d0'}}>10+</div>
+                                    <div className="text-xs" style={{color: 'rgba(192, 160, 160, 0.7)'}}>Expertise Built</div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="about-stat p-4 lg:p-6 bg-surface border border-border-default rounded-lg hover:border-border-subtle transition-all duration-300 text-center">
-                            <Briefcase className="mx-auto mb-2 text-accent" size={20} />
-                            <div className="text-2xl lg:text-3xl font-sans text-text-primary">17</div>
-                            <div className="text-xs text-text-muted mt-1">Projects Delivered</div>
+                        {/* Card 2 - Projects Delivered */}
+                        <div className="about-stat group" style={{perspective: '1000px'}}>
+                            <div style={{
+                                position: 'relative',
+                                minHeight: '140px',
+                                transformStyle: 'preserve-3d',
+                                transition: 'transform 0.6s'
+                            }} className="group-hover:rotate-y-180">
+                                {/* Front Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    padding: '1rem 1.5rem',
+                                    background: '#0a0a0a',
+                                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                                    borderRadius: '0.5rem',
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <Briefcase className="mb-2" style={{color: '#ffffff'}} size={20} />
+                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#f5f5f5'}}>17</div>
+                                    <div className="text-xs mt-1" style={{color: '#525252'}}>Projects Delivered</div>
+                                </div>
+                                {/* Back Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    padding: '1rem 1.5rem',
+                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    borderRadius: '0.5rem',
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden',
+                                    transform: 'rotateY(180deg)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <Briefcase className="mb-2" style={{color: '#d4b8b8'}} size={20} />
+                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#e8d0d0'}}>17</div>
+                                    <div className="text-xs" style={{color: 'rgba(192, 160, 160, 0.7)'}}>Success Rate</div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="about-stat p-4 lg:p-6 bg-surface border border-border-default rounded-lg hover:border-border-subtle transition-all duration-300 text-center">
-                            <Github className="mx-auto mb-2 text-accent" size={20} />
-                            <div className="text-xs text-text-muted mt-1">Open Source</div>
+                        {/* Card 3 - Open Source */}
+                        <div className="about-stat group" style={{perspective: '1000px'}}>
+                            <div style={{
+                                position: 'relative',
+                                minHeight: '140px',
+                                transformStyle: 'preserve-3d',
+                                transition: 'transform 0.6s'
+                            }} className="group-hover:rotate-y-180">
+                                {/* Front Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    padding: '1rem 1.5rem',
+                                    background: '#0a0a0a',
+                                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                                    borderRadius: '0.5rem',
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <Github className="mb-2" style={{color: '#ffffff'}} size={20} />
+                                    <div className="text-xs" style={{color: '#525252'}}>Open Source</div>
+                                </div>
+                                {/* Back Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    padding: '1rem 1.5rem',
+                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    borderRadius: '0.5rem',
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden',
+                                    transform: 'rotateY(180deg)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <Github className="mb-2" style={{color: '#d4b8b8'}} size={20} />
+                                    <div className="text-xs" style={{color: 'rgba(192, 160, 160, 0.7)'}}>Contributions</div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="about-stat p-4 lg:p-6 bg-surface border border-border-default rounded-lg hover:border-border-subtle transition-all duration-300 text-center">
-                            <MapPin className="mx-auto mb-2 text-accent" size={20} />
-                            <div className="text-xl lg:text-2xl font-sans text-text-primary">Global</div>
-                            <div className="text-xs text-text-muted mt-1">Remote Ready</div>
+                        {/* Card 4 - Remote Ready */}
+                        <div className="about-stat group" style={{perspective: '1000px'}}>
+                            <div style={{
+                                position: 'relative',
+                                minHeight: '140px',
+                                transformStyle: 'preserve-3d',
+                                transition: 'transform 0.6s'
+                            }} className="group-hover:rotate-y-180">
+                                {/* Front Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    padding: '1rem 1.5rem',
+                                    background: '#0a0a0a',
+                                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                                    borderRadius: '0.5rem',
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <MapPin className="mb-2" style={{color: '#ffffff'}} size={20} />
+                                    <div className="text-xl lg:text-2xl font-sans" style={{color: '#f5f5f5'}}>Global</div>
+                                    <div className="text-xs mt-1" style={{color: '#525252'}}>Remote Ready</div>
+                                </div>
+                                {/* Back Face */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    padding: '1rem 1.5rem',
+                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    borderRadius: '0.5rem',
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden',
+                                    transform: 'rotateY(180deg)',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <MapPin className="mb-2" style={{color: '#d4b8b8'}} size={20} />
+                                    <div className="text-xl lg:text-2xl font-sans" style={{color: '#e8d0d0'}}>Worldwide</div>
+                                    <div className="text-xs" style={{color: 'rgba(192, 160, 160, 0.7)'}}>Available</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -175,7 +347,7 @@ const About = () => {
                             ].map(skill => (
                                 <span
                                     key={skill}
-                                    className="px-4 py-2 bg-surface border border-border-default text-sm text-text-primary rounded-lg hover:border-border-subtle hover:text-accent transition-all duration-300 cursor-default"
+                                    className="px-4 py-2 bg-[#0a0a0a] border border-border-default text-sm text-text-primary rounded-lg hover:border-accent/60 hover:text-accent hover:bg-[#0a0a0a]/80 transition-all duration-300 cursor-default"
                                 >
                                     {skill}
                                 </span>

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Linkedin, Github, Mail, Brain } from 'lucide-react';
 
 const Hero = () => {
     const containerRef = useRef(null);
@@ -11,10 +11,18 @@ const Hero = () => {
     const scrollIndicatorRef = useRef(null);
     const [showScrollIndicator, setShowScrollIndicator] = useState(true);
     const [isMounted, setIsMounted] = useState(false);
+    const [videoLoaded, setVideoLoaded] = useState(false);
 
     // Handle component mount
     useEffect(() => {
         setIsMounted(true);
+
+        // Delay video load
+        const videoTimer = setTimeout(() => {
+            setVideoLoaded(true);
+        }, 500);
+
+        return () => clearTimeout(videoTimer);
     }, []);
 
     // Handle scroll indicator visibility
@@ -40,11 +48,12 @@ const Hero = () => {
         }
     };
 
-    // Scroll down handler
+    // Scroll down handler - scroll to next section in order
     const scrollDown = () => {
-        const nextSection = document.querySelector('#experience');
-        if (nextSection) {
-            nextSection.scrollIntoView({ behavior: 'smooth' });
+        // Scroll to About section (next section after Hero)
+        const aboutSection = document.querySelector('#about');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
@@ -144,18 +153,44 @@ const Hero = () => {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 overflow-hidden bg-background"
-            style={{ opacity: isMounted ? 1 : 0, transition: 'opacity 0.3s ease-in' }}
+            className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 overflow-hidden"
+            style={{
+                backgroundColor: '#0a0a0a',
+                opacity: isMounted ? 1 : 0,
+                transition: 'opacity 0.3s ease-in'
+            }}
         >
 
-            {/* Background Grid */}
-            <div className="absolute inset-0 opacity-5">
-                <div className="w-full h-full" style={{
-                    backgroundImage: `
-                        linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
-                    `,
-                    backgroundSize: '80px 80px'
+            {/* Video Background */}
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{
+                    opacity: videoLoaded ? 1 : 0,
+                    filter: 'brightness(0.6) contrast(1.05) saturate(1.3) sepia(0.15) hue-rotate(-10deg)',
+                    transition: 'opacity 1.5s ease-in-out',
+                    transform: 'scale(1.15)',
+                    objectFit: 'cover',
+                    objectPosition: 'center center',
+                }}
+            >
+                <source src={`${import.meta.env.BASE_URL}video/Dark_Red_Text_on_Dark_Background.mp4`} type="video/mp4" />
+            </video>
+
+            {/* Dark Grained Filter Overlay */}
+            <div className="absolute inset-0 pointer-events-none" style={{
+                background: `
+                    radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.15) 100%),
+                    linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.25) 50%, rgba(10,10,10,0.35) 100%)
+                `,
+            }}>
+                {/* Grain Effect */}
+                <div className="absolute inset-0 opacity-15" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                    mixBlendMode: 'overlay',
                 }} />
             </div>
 
@@ -166,7 +201,6 @@ const Hero = () => {
                     ref={nameRef}
                     className="font-sans font-black text-massive leading-[0.9] tracking-tighter text-text-primary mb-8 overflow-hidden"
                     style={{
-                        fontFamily: 'Inter, sans-serif',
                         textTransform: 'uppercase',
                         letterSpacing: '-0.04em'
                     }}
@@ -179,7 +213,6 @@ const Hero = () => {
                     ref={subtitleRef}
                     className="font-mono text-lg md:text-xl lg:text-2xl text-text-secondary tracking-widest uppercase"
                     style={{
-                        fontFamily: 'JetBrains Mono, monospace',
                         letterSpacing: '0.2em'
                     }}
                 >
@@ -191,16 +224,53 @@ const Hero = () => {
                     <a
                         href="#contact"
                         onClick={scrollToContact}
-                        className="group inline-flex items-center justify-center gap-3 font-sans text-sm font-semibold uppercase tracking-widest text-text-primary border border-text-primary/30 px-10 py-4 hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background min-w-[160px] min-h-[56px]"
+                        className="group inline-flex items-center justify-center gap-3 font-sans text-sm font-semibold uppercase tracking-widest text-text-primary border border-text-primary/40 px-10 py-4 hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background min-w-[160px] min-h-[56px]"
                         style={{
-                            borderRadius: '0',
-                            fontFamily: 'Inter, sans-serif'
+                            borderRadius: '0'
                         }}
                         aria-label="Scroll to contact section"
                     >
                         Let's Talk
                         <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                     </a>
+
+                    {/* Social Icons */}
+                    <div className="flex items-center justify-center gap-4 mt-6">
+                        <a
+                            href="https://linkedin.com/in/shivam-johri"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-text-muted hover:text-accent transition-colors duration-300"
+                            aria-label="LinkedIn Profile"
+                        >
+                            <Linkedin size={16} strokeWidth={1.5} />
+                        </a>
+                        <a
+                            href="https://github.com/shivamjohri"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-text-muted hover:text-accent transition-colors duration-300"
+                            aria-label="GitHub Profile"
+                        >
+                            <Github size={16} strokeWidth={1.5} />
+                        </a>
+                        <a
+                            href="https://www.kaggle.com/shivamjohri"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-text-muted hover:text-accent transition-colors duration-300"
+                            aria-label="Kaggle Profile"
+                        >
+                            <Brain size={16} strokeWidth={1.5} />
+                        </a>
+                        <a
+                            href="mailto:shivamjohri247@gmail.com"
+                            className="text-text-muted hover:text-accent transition-colors duration-300"
+                            aria-label="Send Email"
+                        >
+                            <Mail size={16} strokeWidth={1.5} />
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -220,12 +290,12 @@ const Hero = () => {
                         }
                     }}
                 >
-                    <span className="font-mono text-xs uppercase tracking-widest text-text-muted group-hover:text-text-primary transition-colors duration-300">
+                    <span className="font-mono text-xs uppercase tracking-widest text-text-secondary group-hover:text-text-primary transition-colors duration-300">
                         Scroll
                     </span>
                     <div className="scroll-icon">
                         <ArrowDown
-                            className="w-5 h-5 text-text-muted group-hover:text-text-primary transition-colors duration-300"
+                            className="w-5 h-5 text-text-secondary group-hover:text-text-primary transition-colors duration-300"
                             strokeWidth={2}
                         />
                     </div>

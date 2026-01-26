@@ -52,10 +52,10 @@ const App = () => {
 
             <main id="main-content" role="main" aria-label="Main content">
                 <Hero />
+                <About />
+                <StickyExpertise />
                 <WallList />
                 <Philosophy />
-                <StickyExpertise />
-                <About />
             </main>
 
             <Footer />

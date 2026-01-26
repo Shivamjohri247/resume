@@ -2,7 +2,20 @@ import React from 'react';
 
 const GlobalStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    @font-face {
+      font-family: 'Silvana';
+      src: url('${import.meta.env.BASE_URL}fonts/Silvana-Regular-Trial.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Silvana';
+      src: url('${import.meta.env.BASE_URL}fonts/Silvana-RegularItalic-Trial.otf') format('opentype');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
 
     /* CSS Variables - Centralized Design System */
     :root {
@@ -60,10 +73,10 @@ const GlobalStyles = () => (
 
     /* Typography */
     .font-sans {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Silvana', sans-serif;
     }
     .font-mono {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Silvana', monospace;
     }
 
     .overflow-hidden-y {

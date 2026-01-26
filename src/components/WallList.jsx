@@ -120,12 +120,13 @@ const WallList = () => {
         <section
             id="experience"
             ref={containerRef}
-            className="py-32 px-6 bg-surface text-text-primary min-h-[80vh] flex flex-col justify-center relative overflow-hidden"
+            className="py-32 px-6 text-text-primary min-h-[80vh] flex flex-col justify-center relative overflow-hidden"
+            style={{backgroundColor: '#0a0a0a'}}
         >
             <div className="max-w-[1600px] mx-auto w-full">
                 {/* Section Header */}
                 <div className="mb-16 overflow-hidden">
-                    <span className="text-xs uppercase tracking-[0.2em] text-text-secondary opacity-80 inline-block">
+                    <span className="text-xs uppercase tracking-[0.2em] text-text-secondary inline-block">
                         Companies I've Worked With
                     </span>
                 </div>
@@ -138,7 +139,7 @@ const WallList = () => {
                             ref={(el) => (itemRefs.current[index] = el)}
                             className={`group relative border-t border-border-subtle py-12 md:py-16 transition-all duration-300 ${
                                 hoveredIndex !== null && hoveredIndex !== index
-                                    ? 'opacity-30 scale-[0.98]'
+                                    ? 'opacity-40 scale-[0.98]'
                                     : 'opacity-100 scale-100'
                             }`}
                             onMouseEnter={() => handleMouseEnter(index)}
@@ -152,7 +153,7 @@ const WallList = () => {
                                     style={{ clipPath: 'inset(0 100% 0 0)' }}
                                 >
                                     {/* Logo Display Card */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-accent/5 backdrop-blur-md border border-border-default rounded-2xl overflow-hidden shadow-2xl">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/8 backdrop-blur-md border border-border-default rounded-2xl overflow-hidden shadow-2xl">
                                         {/* Logo Container */}
                                         <div className="absolute inset-0 flex items-center justify-center p-12">
                                             <img
@@ -163,8 +164,8 @@ const WallList = () => {
                                         </div>
 
                                         {/* Company Info Overlay */}
-                                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/90 to-transparent">
-                                            <div className="text-text-primary/90 text-sm font-mono mb-1 opacity-60">
+                                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/95 to-transparent">
+                                            <div className="text-text-primary/90 text-sm font-mono mb-1">
                                                 {exp.company}
                                             </div>
                                             <div className="text-text-primary/80 text-xs">
@@ -173,7 +174,7 @@ const WallList = () => {
                                         </div>
 
                                         {/* Animated pattern overlay */}
-                                        <div className="absolute inset-0 opacity-10 pointer-events-none">
+                                        <div className="absolute inset-0 opacity-8 pointer-events-none">
                                             <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:20px_20px]"></div>
                                         </div>
                                     </div>
@@ -187,7 +188,7 @@ const WallList = () => {
                                     className="relative w-full h-48 opacity-0"
                                     style={{ clipPath: 'inset(100% 0 0 0)' }}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-accent/5 backdrop-blur-sm border border-border-default rounded-xl overflow-hidden">
+                                    <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/8 backdrop-blur-sm border border-border-default rounded-xl overflow-hidden">
                                         <div className="absolute inset-0 flex items-center justify-center p-8">
                                             <img
                                                 src={exp.logo}
@@ -195,7 +196,7 @@ const WallList = () => {
                                                 className="max-w-full max-h-full object-contain"
                                             />
                                         </div>
-                                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/90 to-transparent">
+                                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/95 to-transparent">
                                             <div className="text-text-primary/80 text-xs font-mono">
                                                 {exp.company}
                                             </div>
@@ -213,7 +214,7 @@ const WallList = () => {
                                         <img
                                             src={exp.logo}
                                             alt={`${exp.company} logo`}
-                                            className="w-full h-full object-contain rounded-lg bg-accent/5 backdrop-blur-sm border border-border-subtle p-2 transition-all duration-300 group-hover:border-border-default group-hover:bg-accent/10"
+                                            className="w-full h-full object-contain rounded-lg bg-accent/8 backdrop-blur-sm border border-border-subtle p-2 transition-all duration-300 group-hover:border-accent/40 group-hover:bg-accent/12"
                                             loading="lazy"
                                         />
                                     </div>
