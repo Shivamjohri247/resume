@@ -169,7 +169,7 @@ const About = () => {
                                     position: 'absolute',
                                     inset: 0,
                                     padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
                                     borderRadius: '0.5rem',
                                     backfaceVisibility: 'hidden',
                                     WebkitBackfaceVisibility: 'hidden',
@@ -179,9 +179,9 @@ const About = () => {
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}>
-                                    <Calendar className="mb-2" style={{color: '#d4b8b8'}} size={20} />
-                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#e8d0d0'}}>10+</div>
-                                    <div className="text-xs" style={{color: 'rgba(192, 160, 160, 0.7)'}}>Expertise Built</div>
+                                    <Calendar className="mb-2" style={{color: '#7dd3fc'}} size={20} />
+                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#d1e7ff'}}>10+</div>
+                                    <div className="text-xs" style={{color: 'rgba(125, 211, 252, 0.7)'}}>Expertise Built</div>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +218,7 @@ const About = () => {
                                     position: 'absolute',
                                     inset: 0,
                                     padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
                                     borderRadius: '0.5rem',
                                     backfaceVisibility: 'hidden',
                                     WebkitBackfaceVisibility: 'hidden',
@@ -228,9 +228,9 @@ const About = () => {
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}>
-                                    <Briefcase className="mb-2" style={{color: '#d4b8b8'}} size={20} />
-                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#e8d0d0'}}>17</div>
-                                    <div className="text-xs" style={{color: 'rgba(192, 160, 160, 0.7)'}}>Success Rate</div>
+                                    <Briefcase className="mb-2" style={{color: '#7dd3fc'}} size={20} />
+                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#d1e7ff'}}>17</div>
+                                    <div className="text-xs" style={{color: 'rgba(125, 211, 252, 0.7)'}}>Success Rate</div>
                                 </div>
                             </div>
                         </div>
@@ -266,7 +266,7 @@ const About = () => {
                                     position: 'absolute',
                                     inset: 0,
                                     padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
                                     borderRadius: '0.5rem',
                                     backfaceVisibility: 'hidden',
                                     WebkitBackfaceVisibility: 'hidden',
@@ -276,8 +276,8 @@ const About = () => {
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}>
-                                    <Github className="mb-2" style={{color: '#d4b8b8'}} size={20} />
-                                    <div className="text-xs" style={{color: 'rgba(192, 160, 160, 0.7)'}}>Contributions</div>
+                                    <Github className="mb-2" style={{color: '#7dd3fc'}} size={20} />
+                                    <div className="text-xs" style={{color: 'rgba(125, 211, 252, 0.7)'}}>Contributions</div>
                                 </div>
                             </div>
                         </div>
@@ -314,7 +314,7 @@ const About = () => {
                                     position: 'absolute',
                                     inset: 0,
                                     padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
                                     borderRadius: '0.5rem',
                                     backfaceVisibility: 'hidden',
                                     WebkitBackfaceVisibility: 'hidden',
@@ -324,9 +324,9 @@ const About = () => {
                                     alignItems: 'center',
                                     justifyContent: 'center'
                                 }}>
-                                    <MapPin className="mb-2" style={{color: '#d4b8b8'}} size={20} />
-                                    <div className="text-xl lg:text-2xl font-sans" style={{color: '#e8d0d0'}}>Worldwide</div>
-                                    <div className="text-xs" style={{color: 'rgba(192, 160, 160, 0.7)'}}>Available</div>
+                                    <MapPin className="mb-2" style={{color: '#7dd3fc'}} size={20} />
+                                    <div className="text-xl lg:text-2xl font-sans" style={{color: '#d1e7ff'}}>Worldwide</div>
+                                    <div className="text-xs" style={{color: 'rgba(125, 211, 252, 0.7)'}}>Available</div>
                                 </div>
                             </div>
                         </div>

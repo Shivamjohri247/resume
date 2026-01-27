@@ -192,7 +192,7 @@ const Philosophy = () => {
                                     position: 'absolute',
                                     inset: 0,
                                     padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
                                     borderRadius: '0.5rem',
                                     backfaceVisibility: 'hidden',
                                     WebkitBackfaceVisibility: 'hidden',
@@ -203,7 +203,7 @@ const Philosophy = () => {
                                     justifyContent: 'center',
                                     textAlign: 'center'
                                 }}>
-                                    <Brain className="mb-3" style={{color: '#d4b8b8'}} size={24} />
+                                    <Brain className="mb-3" style={{color: '#7dd3fc'}} size={24} />
                                     <p className="text-xs lg:text-sm leading-relaxed" style={{color: 'rgba(192, 160, 160, 0.8)'}}>
                                         Systems built with predictable pipelines and verified outputs
                                     </p>
@@ -244,7 +244,7 @@ const Philosophy = () => {
                                     position: 'absolute',
                                     inset: 0,
                                     padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
                                     borderRadius: '0.5rem',
                                     backfaceVisibility: 'hidden',
                                     WebkitBackfaceVisibility: 'hidden',
@@ -255,7 +255,7 @@ const Philosophy = () => {
                                     justifyContent: 'center',
                                     textAlign: 'center'
                                 }}>
-                                    <Zap className="mb-3" style={{color: '#d4b8b8'}} size={24} />
+                                    <Zap className="mb-3" style={{color: '#7dd3fc'}} size={24} />
                                     <p className="text-xs lg:text-sm leading-relaxed" style={{color: 'rgba(192, 160, 160, 0.8)'}}>
                                         LLMs that reason with uncertainty and creativity
                                     </p>
@@ -296,7 +296,7 @@ const Philosophy = () => {
                                     position: 'absolute',
                                     inset: 0,
                                     padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
                                     borderRadius: '0.5rem',
                                     backfaceVisibility: 'hidden',
                                     WebkitBackfaceVisibility: 'hidden',
@@ -307,7 +307,7 @@ const Philosophy = () => {
                                     justifyContent: 'center',
                                     textAlign: 'center'
                                 }}>
-                                    <Shield className="mb-3" style={{color: '#d4b8b8'}} size={24} />
+                                    <Shield className="mb-3" style={{color: '#7dd3fc'}} size={24} />
                                     <p className="text-xs lg:text-sm leading-relaxed" style={{color: 'rgba(192, 160, 160, 0.8)'}}>
                                         RAG pipelines with verification and validation layers
                                     </p>
@@ -348,7 +348,7 @@ const Philosophy = () => {
                                     position: 'absolute',
                                     inset: 0,
                                     padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #2a1a1a 0%, #1a0f0f 100%)',
+                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
                                     borderRadius: '0.5rem',
                                     backfaceVisibility: 'hidden',
                                     WebkitBackfaceVisibility: 'hidden',
@@ -359,7 +359,7 @@ const Philosophy = () => {
                                     justifyContent: 'center',
                                     textAlign: 'center'
                                 }}>
-                                    <Target className="mb-3" style={{color: '#d4b8b8'}} size={24} />
+                                    <Target className="mb-3" style={{color: '#7dd3fc'}} size={24} />
                                     <p className="text-xs lg:text-sm leading-relaxed" style={{color: 'rgba(192, 160, 160, 0.8)'}}>
                                         Multi-agent workflows aligned with business goals
                                     </p>

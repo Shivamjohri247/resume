@@ -170,14 +170,14 @@ const Hero = () => {
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{
                     opacity: videoLoaded ? 1 : 0,
-                    filter: 'brightness(0.6) contrast(1.05) saturate(1.3) sepia(0.15) hue-rotate(-10deg)',
+                    filter: 'brightness(0.7) contrast(1.05) saturate(1.2) hue-rotate(10deg)',
                     transition: 'opacity 1.5s ease-in-out',
                     transform: 'scale(1.15)',
                     objectFit: 'cover',
                     objectPosition: 'center center',
                 }}
             >
-                <source src={`${import.meta.env.BASE_URL}video/Dark_Red_Text_on_Dark_Background.mp4`} type="video/mp4" />
+                <source src={`${import.meta.env.BASE_URL}video/Video_Generation_for_Water_Shimmer.mp4`} type="video/mp4" />
             </video>
 
             {/* Dark Grained Filter Overlay */}

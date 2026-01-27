@@ -58,43 +58,43 @@ const StickyExpertise = () => {
                 {/* Scrolling Content */}
                 <div className="lg:w-2/3" style={{backgroundColor: '#0a0a0a'}}>
                     {/* Item 1 */}
-                    <div className="exp-item min-h-[50vh] p-8 lg:p-20 flex flex-col justify-center border-b border-border-subtle hover:bg-[#2a1a1a] hover:text-[#e8d0d0] transition-all duration-500 ease-out will-change-[background,color] group">
-                        <span className="text-6xl font-sans text-accent/30 mb-6 block transition-colors duration-500 ease-out group-hover:text-[#c0a0a0]/40">01</span>
-                        <ScrambleText className="text-3xl font-sans mb-4 text-text-primary transition-colors duration-500 ease-out group-hover:text-[#d4b8b8]">Agentic AI Systems</ScrambleText>
-                        <p className="text-text-secondary max-w-lg mb-8 leading-relaxed transition-colors duration-500 ease-out group-hover:text-[#c0a0a0]/70">
+                    <div className="exp-item min-h-[50vh] p-8 lg:p-20 flex flex-col justify-center border-b border-border-subtle hover:bg-[#1a2a3a] hover:text-[#d1e7ff] transition-all duration-500 ease-out will-change-[background,color] group">
+                        <span className="text-6xl font-sans text-accent/30 mb-6 block transition-colors duration-500 ease-out group-hover:text-[#7dd3fc]/40">01</span>
+                        <ScrambleText className="text-3xl font-sans mb-4 text-text-primary transition-colors duration-500 ease-out group-hover:text-[#7dd3fc]">Agentic AI Systems</ScrambleText>
+                        <p className="text-text-secondary max-w-lg mb-8 leading-relaxed transition-colors duration-500 ease-out group-hover:text-[#7dd3fc]/70">
                             Designing multi-agent workflows using LangGraph, Semantic Kernel, CrewAI, Google ADK and Microsoft Agent Framework. I build agents that can reason, plan, and execute complex tasks autonomously.
                         </p>
                         <div className="flex flex-wrap gap-3">
                             {["LangGraph", "Semantic Kernel", "RAG", "Vector DBs", "CrewAI", "Google ADK", "Microsoft Agent Framework"].map(tag => (
-                                <span key={tag} className="px-3 py-1 bg-[#0a0a0a] border border-border-subtle text-xs uppercase tracking-wider text-text-primary group-hover:bg-[#1a0f0f] group-hover:text-[#d4b8b8] group-hover:border-[#3a2020]/50 transition-all duration-500 ease-out will-change-[background,color,border-color]">{tag}</span>
+                                <span key={tag} className="px-3 py-1 bg-[#0a0a0a] border border-border-subtle text-xs uppercase tracking-wider text-text-primary group-hover:bg-[#0f1a2a] group-hover:text-[#7dd3fc] group-hover:border-[#1a3a4a]/50 transition-all duration-500 ease-out will-change-[background,color,border-color]">{tag}</span>
                             ))}
                         </div>
                     </div>
 
                     {/* Item 2 */}
-                    <div className="exp-item min-h-[50vh] p-8 lg:p-20 flex flex-col justify-center border-b border-border-subtle hover:bg-[#2a1a1a] hover:text-[#e8d0d0] transition-all duration-500 ease-out will-change-[background,color] group">
-                        <span className="text-6xl font-sans text-accent/30 mb-6 block transition-colors duration-500 ease-out group-hover:text-[#c0a0a0]/40">02</span>
-                        <ScrambleText className="text-3xl font-sans mb-4 text-text-primary transition-colors duration-500 ease-out group-hover:text-[#d4b8b8]">MLOps Infrastructure</ScrambleText>
-                        <p className="text-text-secondary max-w-lg mb-8 leading-relaxed transition-colors duration-500 ease-out group-hover:text-[#c0a0a0]/70">
+                    <div className="exp-item min-h-[50vh] p-8 lg:p-20 flex flex-col justify-center border-b border-border-subtle hover:bg-[#1a2a3a] hover:text-[#d1e7ff] transition-all duration-500 ease-out will-change-[background,color] group">
+                        <span className="text-6xl font-sans text-accent/30 mb-6 block transition-colors duration-500 ease-out group-hover:text-[#7dd3fc]/40">02</span>
+                        <ScrambleText className="text-3xl font-sans mb-4 text-text-primary transition-colors duration-500 ease-out group-hover:text-[#7dd3fc]">MLOps Infrastructure</ScrambleText>
+                        <p className="text-text-secondary max-w-lg mb-8 leading-relaxed transition-colors duration-500 ease-out group-hover:text-[#7dd3fc]/70">
                             Automating the path to production. I implement robust CI/CD pipelines, model monitoring, and container orchestration to ensure your models don't just work in notebooks.
                         </p>
                         <div className="flex flex-wrap gap-3">
                             {["Kubernetes", "Docker", "Apache Airflow", "MLflow", "DVC"].map(tag => (
-                                <span key={tag} className="px-3 py-1 bg-[#0a0a0a] border border-border-subtle text-xs uppercase tracking-wider text-text-primary group-hover:bg-[#1a0f0f] group-hover:text-[#d4b8b8] group-hover:border-[#3a2020]/50 transition-all duration-500 ease-out will-change-[background,color,border-color]">{tag}</span>
+                                <span key={tag} className="px-3 py-1 bg-[#0a0a0a] border border-border-subtle text-xs uppercase tracking-wider text-text-primary group-hover:bg-[#0f1a2a] group-hover:text-[#7dd3fc] group-hover:border-[#1a3a4a]/50 transition-all duration-500 ease-out will-change-[background,color,border-color]">{tag}</span>
                             ))}
                         </div>
                     </div>
 
                     {/* Item 3 */}
-                    <div className="exp-item min-h-[50vh] p-8 lg:p-20 flex flex-col justify-center hover:bg-[#2a1a1a] hover:text-[#e8d0d0] transition-all duration-500 ease-out will-change-[background,color] group">
-                        <span className="text-6xl font-sans text-accent/30 mb-6 block transition-colors duration-500 ease-out group-hover:text-[#c0a0a0]/40">03</span>
-                        <ScrambleText className="text-3xl font-sans mb-4 text-text-primary transition-colors duration-500 ease-out group-hover:text-[#d4b8b8]">Big Data Engineering</ScrambleText>
-                        <p className="text-text-secondary max-w-lg mb-8 leading-relaxed transition-colors duration-500 ease-out group-hover:text-[#c0a0a0]/70">
+                    <div className="exp-item min-h-[50vh] p-8 lg:p-20 flex flex-col justify-center hover:bg-[#1a2a3a] hover:text-[#d1e7ff] transition-all duration-500 ease-out will-change-[background,color] group">
+                        <span className="text-6xl font-sans text-accent/30 mb-6 block transition-colors duration-500 ease-out group-hover:text-[#7dd3fc]/40">03</span>
+                        <ScrambleText className="text-3xl font-sans mb-4 text-text-primary transition-colors duration-500 ease-out group-hover:text-[#7dd3fc]">Big Data Engineering</ScrambleText>
+                        <p className="text-text-secondary max-w-lg mb-8 leading-relaxed transition-colors duration-500 ease-out group-hover:text-[#7dd3fc]/70">
                             Handling data at enterprise scale. From distributed processing with PySpark to real-time search implementation with ElasticSearch and Apache Solr.
                         </p>
                         <div className="flex flex-wrap gap-3">
                             {["PySpark", "Hadoop", "ElasticSearch", "Apache Solr", "Redis"].map(tag => (
-                                <span key={tag} className="px-3 py-1 bg-[#0a0a0a] border border-border-subtle text-xs uppercase tracking-wider text-text-primary group-hover:bg-[#1a0f0f] group-hover:text-[#d4b8b8] group-hover:border-[#3a2020]/50 transition-all duration-500 ease-out will-change-[background,color,border-color]">{tag}</span>
+                                <span key={tag} className="px-3 py-1 bg-[#0a0a0a] border border-border-subtle text-xs uppercase tracking-wider text-text-primary group-hover:bg-[#0f1a2a] group-hover:text-[#7dd3fc] group-hover:border-[#1a3a4a]/50 transition-all duration-500 ease-out will-change-[background,color,border-color]">{tag}</span>
                             ))}
                         </div>
                     </div>
