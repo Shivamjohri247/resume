@@ -48,7 +48,7 @@ const About = () => {
                 scrollTrigger: {
                     trigger: contentRef.current,
                     start: "top 80%",
-                    toggleActions: "play none none reverse"
+                    toggleActions: "play none none none"
                 }
             }
         );
@@ -78,15 +78,33 @@ const About = () => {
         <section
             id="about"
             ref={containerRef}
-            className="py-24 lg:py-32 px-6 max-w-[1600px] mx-auto relative"
-            style={{backgroundColor: '#0a0a0a'}}
+            className="py-24 lg:py-32 px-6 max-w-[1600px] mx-auto relative overflow-hidden"
+            style={{backgroundColor: '#ffffff'}}
         >
+            {/* Background Video - Abstract Geometry */}
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover opacity-30"
+                style={{
+                    filter: 'brightness(1.3) contrast(0.9) saturate(1.2)',
+                    objectFit: 'cover',
+                    transform: 'scale(1.1)',
+                }}
+            >
+                <source src={`${import.meta.env.BASE_URL}video/abstract-geometry.webm`} type="video/webm" />
+                <source src={`${import.meta.env.BASE_URL}video/abstract-geometry.mp4`} type="video/mp4" />
+            </video>
+            {/* Light Overlay for white theme */}
+            <div className="absolute inset-0 pointer-events-none" style={{background: 'rgba(255, 255, 255, 0.75)'}} />
             {/* Section Label */}
-            <div className="mb-16 text-center">
-                <span className="about-content text-xs uppercase tracking-[0.3em] text-accent font-semibold">
+            <div className="mb-16 text-center relative z-10">
+                <span className="text-xs uppercase tracking-[0.3em] text-accent font-semibold">
                     About Me
                 </span>
-                <h2 className="about-content font-sans text-4xl lg:text-6xl text-text-primary mt-4 leading-tight">
+                <h2 className="font-sans text-4xl lg:text-6xl text-text-primary mt-4 leading-tight">
                     Building the Future of <span className="text-accent">AI</span>
                 </h2>
             </div>
@@ -138,196 +156,102 @@ const About = () => {
                     {/* Stats Grid */}
                     <div className="about-stats grid grid-cols-2 lg:grid-cols-4 gap-4">
                         {/* Card 1 - Years Experience */}
-                        <div className="about-stat group" style={{perspective: '1000px'}}>
-                            <div style={{
-                                position: 'relative',
-                                minHeight: '140px',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.6s'
-                            }} className="group-hover:rotate-y-180">
-                                {/* Front Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: '#0a0a0a',
-                                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <Calendar className="mb-2" style={{color: '#ffffff'}} size={20} />
-                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#f5f5f5'}}>10+</div>
-                                    <div className="text-xs mt-1" style={{color: '#525252'}}>Years Experience</div>
-                                </div>
-                                {/* Back Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <Calendar className="mb-2" style={{color: '#7dd3fc'}} size={20} />
-                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#d1e7ff'}}>10+</div>
-                                    <div className="text-xs" style={{color: 'rgba(125, 211, 252, 0.7)'}}>Expertise Built</div>
-                                </div>
+                        <div className="about-stat group relative h-[160px]">
+                            <div className="relative h-full rounded-xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 p-6 flex flex-col items-center justify-center text-center"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)',
+                                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.04) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)';
+                                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08)';
+                                }}
+                            >
+                                <Calendar className="mb-2 transition-transform duration-300 group-hover:scale-110" style={{color: '#374151'}} size={24} />
+                                <div className="text-3xl lg:text-4xl font-black transition-all duration-300 group-hover:scale-110" style={{color: '#0a0a0a', letterSpacing: '-0.02em', lineHeight: 1}}>10+</div>
+                                <div className="text-xs mt-1 transition-all duration-300" style={{color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.1em'}}>Years Experience</div>
                             </div>
                         </div>
 
                         {/* Card 2 - Projects Delivered */}
-                        <div className="about-stat group" style={{perspective: '1000px'}}>
-                            <div style={{
-                                position: 'relative',
-                                minHeight: '140px',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.6s'
-                            }} className="group-hover:rotate-y-180">
-                                {/* Front Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: '#0a0a0a',
-                                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <Briefcase className="mb-2" style={{color: '#ffffff'}} size={20} />
-                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#f5f5f5'}}>17</div>
-                                    <div className="text-xs mt-1" style={{color: '#525252'}}>Projects Delivered</div>
-                                </div>
-                                {/* Back Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <Briefcase className="mb-2" style={{color: '#7dd3fc'}} size={20} />
-                                    <div className="text-2xl lg:text-3xl font-sans" style={{color: '#d1e7ff'}}>17</div>
-                                    <div className="text-xs" style={{color: 'rgba(125, 211, 252, 0.7)'}}>Success Rate</div>
-                                </div>
+                        <div className="about-stat group relative h-[160px]">
+                            <div className="relative h-full rounded-xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 p-6 flex flex-col items-center justify-center text-center"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)',
+                                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.04) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)';
+                                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08)';
+                                }}
+                            >
+                                <Briefcase className="mb-2 transition-transform duration-300 group-hover:scale-110" style={{color: '#374151'}} size={24} />
+                                <div className="text-3xl lg:text-4xl font-black transition-all duration-300 group-hover:scale-110" style={{color: '#0a0a0a', letterSpacing: '-0.02em', lineHeight: 1}}>17</div>
+                                <div className="text-xs mt-1 transition-all duration-300" style={{color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.1em'}}>Projects Delivered</div>
                             </div>
                         </div>
 
                         {/* Card 3 - Open Source */}
-                        <div className="about-stat group" style={{perspective: '1000px'}}>
-                            <div style={{
-                                position: 'relative',
-                                minHeight: '140px',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.6s'
-                            }} className="group-hover:rotate-y-180">
-                                {/* Front Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: '#0a0a0a',
-                                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <Github className="mb-2" style={{color: '#ffffff'}} size={20} />
-                                    <div className="text-xs" style={{color: '#525252'}}>Open Source</div>
-                                </div>
-                                {/* Back Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <Github className="mb-2" style={{color: '#7dd3fc'}} size={20} />
-                                    <div className="text-xs" style={{color: 'rgba(125, 211, 252, 0.7)'}}>Contributions</div>
-                                </div>
+                        <div className="about-stat group relative h-[160px]">
+                            <div className="relative h-full rounded-xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 p-6 flex flex-col items-center justify-center text-center"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)',
+                                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.04) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)';
+                                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08)';
+                                }}
+                            >
+                                <Github className="mb-2 transition-transform duration-300 group-hover:scale-110" style={{color: '#374151'}} size={24} />
+                                <div className="text-sm font-semibold transition-all duration-300" style={{color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.1em', lineHeight: 1.2}}>Open Source</div>
+                                <div className="text-xs mt-1 transition-all duration-300" style={{color: '#718096'}}>Contributions</div>
                             </div>
                         </div>
 
                         {/* Card 4 - Remote Ready */}
-                        <div className="about-stat group" style={{perspective: '1000px'}}>
-                            <div style={{
-                                position: 'relative',
-                                minHeight: '140px',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.6s'
-                            }} className="group-hover:rotate-y-180">
-                                {/* Front Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: '#0a0a0a',
-                                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <MapPin className="mb-2" style={{color: '#ffffff'}} size={20} />
-                                    <div className="text-xl lg:text-2xl font-sans" style={{color: '#f5f5f5'}}>Global</div>
-                                    <div className="text-xs mt-1" style={{color: '#525252'}}>Remote Ready</div>
-                                </div>
-                                {/* Back Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}>
-                                    <MapPin className="mb-2" style={{color: '#7dd3fc'}} size={20} />
-                                    <div className="text-xl lg:text-2xl font-sans" style={{color: '#d1e7ff'}}>Worldwide</div>
-                                    <div className="text-xs" style={{color: 'rgba(125, 211, 252, 0.7)'}}>Available</div>
-                                </div>
+                        <div className="about-stat group relative h-[160px]">
+                            <div className="relative h-full rounded-xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 p-6 flex flex-col items-center justify-center text-center"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)',
+                                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.04) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)';
+                                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08)';
+                                }}
+                            >
+                                <MapPin className="mb-2 transition-transform duration-300 group-hover:scale-110" style={{color: '#374151'}} size={24} />
+                                <div className="text-3xl lg:text-4xl font-black transition-all duration-300 group-hover:scale-110" style={{color: '#0a0a0a', letterSpacing: '-0.02em', lineHeight: 1}}>Global</div>
+                                <div className="text-xs mt-1 transition-all duration-300" style={{color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.1em'}}>Remote Ready</div>
                             </div>
                         </div>
                     </div>
@@ -348,7 +272,20 @@ const About = () => {
                             ].map(skill => (
                                 <span
                                     key={skill}
-                                    className="px-4 py-2 bg-[#0a0a0a] border border-border-default text-sm text-text-primary rounded-lg hover:border-accent/60 hover:text-accent hover:bg-[#0a0a0a]/80 transition-all duration-300 cursor-default"
+                                    className="px-4 py-2 text-sm text-text-primary rounded-lg transition-all duration-300 hover:scale-105"
+                                    style={{
+                                        background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)',
+                                        backdropFilter: 'blur(8px)',
+                                        border: '1px solid rgba(0, 0, 0, 0.08)',
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.04) 100%)';
+                                        e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)';
+                                        e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                                    }}
                                 >
                                     {skill}
                                 </span>

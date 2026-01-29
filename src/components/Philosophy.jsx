@@ -102,9 +102,27 @@ const Philosophy = () => {
         <section
             id="philosophy"
             ref={containerRef}
-            className="py-24 lg:py-32 px-6 max-w-[1600px] mx-auto relative overflow-hidden"
-            style={{backgroundColor: '#0a0a0a'}}
+            className="py-16 lg:py-20 px-6 max-w-[1600px] mx-auto relative overflow-hidden"
+            style={{backgroundColor: '#ffffff'}}
         >
+            {/* Background Video - Network Visualization */}
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover opacity-40"
+                style={{
+                    filter: 'brightness(1.4) contrast(0.95) saturate(1.1)',
+                    objectFit: 'cover',
+                    transform: 'scale(1.15)',
+                }}
+            >
+                <source src={`${import.meta.env.BASE_URL}video/network-visualization.webm`} type="video/webm" />
+                <source src={`${import.meta.env.BASE_URL}video/network-visualization.mp4`} type="video/mp4" />
+            </video>
+            {/* Light Overlay */}
+            <div className="absolute inset-0 pointer-events-none" style={{background: 'radial-gradient(circle at center, transparent 0%, rgba(255, 255, 255, 0.85) 100%)'}} />
             <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
                 {/* Image Section */}
                 <div className="order-1 lg:order-1 relative overflow-hidden rounded-lg border border-border-subtle hover:border-border-default transition-all duration-500 group min-h-[300px] lg:min-h-[400px]">
@@ -146,7 +164,7 @@ const Philosophy = () => {
                     {/* AI-Themed Quote with Emphasis */}
                     <div
                         ref={quoteRef}
-                        className="phil-text relative p-6 lg:p-8 mb-8 bg-[#0a0a0a] border-l-4 border-accent rounded-r-lg"
+                        className="phil-text relative p-6 lg:p-8 mb-8 bg-[#f8f9fa] border-l-4 border-accent rounded-r-lg"
                     >
                         <blockquote className="text-text-secondary leading-relaxed text-lg font-light">
                             <span className="text-text-primary font-semibold">Hallucination is the enemy.</span>{" "}
@@ -157,213 +175,105 @@ const Philosophy = () => {
                         </blockquote>
                     </div>
 
-                    {/* Feature Cards - 3D Flip Cards */}
+                    {/* Feature Cards - Glassmorphic Design */}
                     <div className="phil-cards grid grid-cols-2 gap-4 lg:gap-6">
                         {/* Card 1 - Deterministic */}
-                        <div className="phil-card group" style={{perspective: '1000px'}}>
-                            <div style={{
-                                position: 'relative',
-                                minHeight: '140px',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.6s'
-                            }} className="flip-card">
-                                {/* Front Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: '#0a0a0a',
-                                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center'
-                                }}>
-                                    <Brain className="mb-3" style={{color: '#ffffff'}} size={24} />
-                                    <h4 className="font-sans text-lg lg:text-xl mb-1" style={{color: '#f5f5f5'}}>Deterministic</h4>
-                                    <p className="text-xs lg:text-sm" style={{color: '#525252'}}>Reliable, reproducible outcomes</p>
-                                </div>
-                                {/* Back Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center'
-                                }}>
-                                    <Brain className="mb-3" style={{color: '#7dd3fc'}} size={24} />
-                                    <p className="text-xs lg:text-sm leading-relaxed" style={{color: 'rgba(192, 160, 160, 0.8)'}}>
-                                        Systems built with predictable pipelines and verified outputs
-                                    </p>
-                                </div>
+                        <div className="phil-card group relative h-[160px]">
+                            <div className="relative h-full p-6 rounded-xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 flex flex-col items-center justify-center text-center"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)',
+                                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.04) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)';
+                                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08)';
+                                }}
+                            >
+                                <Brain className="mb-2 transition-transform duration-300 group-hover:scale-110" style={{color: '#374151'}} size={24} />
+                                <h4 className="font-sans text-lg lg:text-xl mb-1" style={{color: '#0a0a0a'}}>Deterministic</h4>
+                                <p className="text-xs lg:text-sm" style={{color: '#718096'}}>Reliable, reproducible outcomes</p>
                             </div>
                         </div>
 
                         {/* Card 2 - Stochastic */}
-                        <div className="phil-card group" style={{perspective: '1000px'}}>
-                            <div style={{
-                                position: 'relative',
-                                minHeight: '140px',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.6s'
-                            }} className="flip-card">
-                                {/* Front Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: '#0a0a0a',
-                                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center'
-                                }}>
-                                    <Zap className="mb-3" style={{color: '#ffffff'}} size={24} />
-                                    <h4 className="font-sans text-lg lg:text-xl mb-1" style={{color: '#f5f5f5'}}>Stochastic</h4>
-                                    <p className="text-xs lg:text-sm" style={{color: '#525252'}}>Embracing AI's probabilistic nature</p>
-                                </div>
-                                {/* Back Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center'
-                                }}>
-                                    <Zap className="mb-3" style={{color: '#7dd3fc'}} size={24} />
-                                    <p className="text-xs lg:text-sm leading-relaxed" style={{color: 'rgba(192, 160, 160, 0.8)'}}>
-                                        LLMs that reason with uncertainty and creativity
-                                    </p>
-                                </div>
+                        <div className="phil-card group relative h-[160px]">
+                            <div className="relative h-full p-6 rounded-xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 flex flex-col items-center justify-center text-center"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)',
+                                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.04) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)';
+                                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08)';
+                                }}
+                            >
+                                <Zap className="mb-2 transition-transform duration-300 group-hover:scale-110" style={{color: '#374151'}} size={24} />
+                                <h4 className="font-sans text-lg lg:text-xl mb-1" style={{color: '#0a0a0a'}}>Stochastic</h4>
+                                <p className="text-xs lg:text-sm" style={{color: '#718096'}}>Embracing AI's probabilistic nature</p>
                             </div>
                         </div>
 
                         {/* Card 3 - Guardrailed */}
-                        <div className="phil-card group" style={{perspective: '1000px'}}>
-                            <div style={{
-                                position: 'relative',
-                                minHeight: '140px',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.6s'
-                            }} className="flip-card">
-                                {/* Front Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: '#0a0a0a',
-                                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center'
-                                }}>
-                                    <Shield className="mb-3" style={{color: '#ffffff'}} size={24} />
-                                    <h4 className="font-sans text-lg lg:text-xl mb-1" style={{color: '#f5f5f5'}}>Guardrailed</h4>
-                                    <p className="text-xs lg:text-sm" style={{color: '#525252'}}>Safety through architecture</p>
-                                </div>
-                                {/* Back Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center'
-                                }}>
-                                    <Shield className="mb-3" style={{color: '#7dd3fc'}} size={24} />
-                                    <p className="text-xs lg:text-sm leading-relaxed" style={{color: 'rgba(192, 160, 160, 0.8)'}}>
-                                        RAG pipelines with verification and validation layers
-                                    </p>
-                                </div>
+                        <div className="phil-card group relative h-[160px]">
+                            <div className="relative h-full p-6 rounded-xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 flex flex-col items-center justify-center text-center"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)',
+                                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.04) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)';
+                                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08)';
+                                }}
+                            >
+                                <Shield className="mb-2 transition-transform duration-300 group-hover:scale-110" style={{color: '#374151'}} size={24} />
+                                <h4 className="font-sans text-lg lg:text-xl mb-1" style={{color: '#0a0a0a'}}>Guardrailed</h4>
+                                <p className="text-xs lg:text-sm" style={{color: '#718096'}}>Safety through architecture</p>
                             </div>
                         </div>
 
                         {/* Card 4 - Intent-Driven */}
-                        <div className="phil-card group" style={{perspective: '1000px'}}>
-                            <div style={{
-                                position: 'relative',
-                                minHeight: '140px',
-                                transformStyle: 'preserve-3d',
-                                transition: 'transform 0.6s'
-                            }} className="flip-card">
-                                {/* Front Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: '#0a0a0a',
-                                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center'
-                                }}>
-                                    <Target className="mb-3" style={{color: '#ffffff'}} size={24} />
-                                    <h4 className="font-sans text-lg lg:text-xl mb-1" style={{color: '#f5f5f5'}}>Intent-Driven</h4>
-                                    <p className="text-xs lg:text-sm" style={{color: '#525252'}}>Purposeful system design</p>
-                                </div>
-                                {/* Back Face */}
-                                <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    padding: '1rem 1.5rem',
-                                    background: 'linear-gradient(135deg, #1a2a3a 0%, #0f1a2a 100%)',
-                                    borderRadius: '0.5rem',
-                                    backfaceVisibility: 'hidden',
-                                    WebkitBackfaceVisibility: 'hidden',
-                                    transform: 'rotateY(180deg)',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center'
-                                }}>
-                                    <Target className="mb-3" style={{color: '#7dd3fc'}} size={24} />
-                                    <p className="text-xs lg:text-sm leading-relaxed" style={{color: 'rgba(192, 160, 160, 0.8)'}}>
-                                        Multi-agent workflows aligned with business goals
-                                    </p>
-                                </div>
+                        <div className="phil-card group relative h-[160px]">
+                            <div className="relative h-full p-6 rounded-xl backdrop-blur-xl transition-all duration-500 hover:scale-105 hover:-translate-y-1 flex flex-col items-center justify-center text-center"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)',
+                                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.04) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.15)';
+                                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.background = 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)';
+                                    e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.08)';
+                                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.08)';
+                                }}
+                            >
+                                <Target className="mb-2 transition-transform duration-300 group-hover:scale-110" style={{color: '#374151'}} size={24} />
+                                <h4 className="font-sans text-lg lg:text-xl mb-1" style={{color: '#0a0a0a'}}>Intent-Driven</h4>
+                                <p className="text-xs lg:text-sm" style={{color: '#718096'}}>Purposeful system design</p>
                             </div>
                         </div>
                     </div>

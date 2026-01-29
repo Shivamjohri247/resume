@@ -9,7 +9,9 @@ A modern, high-performance portfolio website built with React, Vite, and GSAP, f
 ## ✨ Features
 
 ### Design & UX
-- **Minimalist Dark Theme** - Eye-friendly dark color scheme with gold (#E4C441) accents
+- **Sophisticated White Theme** - Clean white background with sky blue (#38bdf8) accents
+- **Dark Hero Section** - Dramatic black hero with water shimmer video background
+- **Glassmorphic Design** - Modern glass effects with backdrop blur throughout
 - **Smooth Animations** - GSAP-powered animations with ScrollTrigger
 - **Lenis Smooth Scroll** - Buttery smooth scrolling experience
 - **Custom Cursor** - Interactive cursor with hover effects (desktop only)

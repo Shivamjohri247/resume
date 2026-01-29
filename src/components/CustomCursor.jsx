@@ -54,6 +54,9 @@ const CustomCursor = () => {
         const handleMouseEnter = () => setIsHovering(true);
         const handleMouseLeave = () => setIsHovering(false);
 
+        // Reset hover state on click (fixes stuck cursor when clicking scroll links)
+        const handleClick = () => setIsHovering(false);
+
         // Select all interactive elements
         const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, [role="button"], [tabindex]');
 
@@ -62,8 +65,9 @@ const CustomCursor = () => {
             el.addEventListener('mouseleave', handleMouseLeave, { passive: true });
         });
 
-        // Listen for mouse movement
+        // Listen for mouse movement and clicks
         window.addEventListener('mousemove', handleMouseMove, { passive: true });
+        window.addEventListener('click', handleClick, { passive: true });
 
         // MutationObserver to detect dynamically added elements
         const observer = new MutationObserver((mutations) => {
@@ -101,6 +105,7 @@ const CustomCursor = () => {
                 cancelAnimationFrame(rafRef.current);
             }
             window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('click', handleClick);
             observer.disconnect();
 
             // Remove listeners from all interactive elements

@@ -2,39 +2,24 @@ import React from 'react';
 
 const GlobalStyles = () => (
   <style>{`
-    @font-face {
-      font-family: 'Silvana';
-      src: url('${import.meta.env.BASE_URL}fonts/Silvana-Regular-Trial.otf') format('opentype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Silvana';
-      src: url('${import.meta.env.BASE_URL}fonts/Silvana-RegularItalic-Trial.otf') format('opentype');
-      font-weight: 400;
-      font-style: italic;
-      font-display: swap;
-    }
-
     /* CSS Variables - Centralized Design System */
     :root {
-      /* Background Colors */
-      --color-background: #0a0a0a;
-      --color-surface: #111111;
+      /* Background Colors - White Theme */
+      --color-background: #ffffff;
+      --color-surface: #f8f9fa;
 
       /* Text Colors - High Contrast Hierarchy */
-      --color-text-primary: #f5f5f5;
-      --color-text-secondary: #a3a3a3;
-      --color-text-muted: #525252;
+      --color-text-primary: #0a0a0a;
+      --color-text-secondary: #4a5568;
+      --color-text-muted: #718096;
 
-      /* Accent Colors - Pure White for Interactions */
-      --color-accent: #ffffff;
-      --color-accent-hover: #e5e5e5;
+      /* Accent Colors - Sophisticated Sky Blue */
+      --color-accent: #38bdf8;
+      --color-accent-hover: #0ea5e9;
 
       /* Border Colors */
-      --color-border-subtle: rgba(255, 255, 255, 0.1);
-      --color-border-default: rgba(255, 255, 255, 0.2);
+      --color-border-subtle: rgba(0, 0, 0, 0.08);
+      --color-border-default: rgba(0, 0, 0, 0.15);
     }
 
     * {
@@ -71,12 +56,15 @@ const GlobalStyles = () => (
       background: var(--color-text-secondary);
     }
 
-    /* Typography */
+    /* Typography - Inter for display, JetBrains Mono for code/tech */
     .font-sans {
-      font-family: 'Silvana', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-feature-settings: 'cv11' on, 'ss01' on;
     }
     .font-mono {
-      font-family: 'Silvana', monospace;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      font-feature-settings: 'ss01' on, 'zero' on, 'liga' on;
+      font-variant-ligatures: contextual;
     }
 
     .overflow-hidden-y {

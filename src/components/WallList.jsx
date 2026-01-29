@@ -120,8 +120,8 @@ const WallList = () => {
         <section
             id="experience"
             ref={containerRef}
-            className="py-32 px-6 text-text-primary min-h-[80vh] flex flex-col justify-center relative overflow-hidden"
-            style={{backgroundColor: '#0a0a0a'}}
+            className="py-16 px-6 text-text-primary min-h-[60vh] flex flex-col justify-center relative"
+            style={{backgroundColor: '#ffffff'}}
         >
             <div className="max-w-[1600px] mx-auto w-full">
                 {/* Section Header */}
@@ -137,11 +137,12 @@ const WallList = () => {
                         <div
                             key={index}
                             ref={(el) => (itemRefs.current[index] = el)}
-                            className={`group relative border-t border-border-subtle py-12 md:py-16 transition-all duration-300 ${
+                            className={`group relative py-12 md:py-16 transition-all duration-300 ${
                                 hoveredIndex !== null && hoveredIndex !== index
                                     ? 'opacity-40 scale-[0.98]'
                                     : 'opacity-100 scale-100'
                             }`}
+                            style={{borderTop: '1px solid rgba(255, 255, 255, 0.08)'}}
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={() => handleMouseLeave(index)}
                         >
@@ -153,7 +154,14 @@ const WallList = () => {
                                     style={{ clipPath: 'inset(0 100% 0 0)' }}
                                 >
                                     {/* Logo Display Card */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/8 backdrop-blur-md border border-border-default rounded-2xl overflow-hidden shadow-2xl">
+                                    <div className="absolute inset-0 rounded-2xl overflow-hidden"
+                                        style={{
+                                            background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.03) 100%)',
+                                            backdropFilter: 'blur(16px)',
+                                            border: '1px solid rgba(0, 0, 0, 0.1)',
+                                            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
+                                        }}
+                                    >
                                         {/* Logo Container */}
                                         <div className="absolute inset-0 flex items-center justify-center p-12">
                                             <img
@@ -164,18 +172,11 @@ const WallList = () => {
                                         </div>
 
                                         {/* Company Info Overlay */}
-                                        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background/95 to-transparent">
-                                            <div className="text-text-primary/90 text-sm font-mono mb-1">
-                                                {exp.company}
-                                            </div>
-                                            <div className="text-text-primary/80 text-xs">
-                                                {exp.description}
-                                            </div>
-                                        </div>
-
-                                        {/* Animated pattern overlay */}
-                                        <div className="absolute inset-0 opacity-8 pointer-events-none">
-                                            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:20px_20px]"></div>
+                                        <div className="absolute bottom-0 left-0 right-0 p-6"
+                                            style={{background: 'linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, transparent 100%)'}}
+                                        >
+                                            <div className="text-text-primary/90 text-sm font-mono mb-1">{exp.company}</div>
+                                            <div className="text-text-primary/80 text-xs">{exp.description}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -188,18 +189,18 @@ const WallList = () => {
                                     className="relative w-full h-48 opacity-0"
                                     style={{ clipPath: 'inset(100% 0 0 0)' }}
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-accent/15 to-accent/8 backdrop-blur-sm border border-border-default rounded-xl overflow-hidden">
+                                    <div className="absolute inset-0 rounded-xl overflow-hidden"
+                                        style={{
+                                            background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.03) 100%)',
+                                            backdropFilter: 'blur(16px)',
+                                            border: '1px solid rgba(0, 0, 0, 0.1)',
+                                        }}
+                                    >
                                         <div className="absolute inset-0 flex items-center justify-center p-8">
-                                            <img
-                                                src={exp.logo}
-                                                alt={`${exp.company} logo`}
-                                                className="max-w-full max-h-full object-contain"
-                                            />
+                                            <img src={exp.logo} alt={`${exp.company} logo`} className="max-w-full max-h-full object-contain" />
                                         </div>
-                                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/95 to-transparent">
-                                            <div className="text-text-primary/80 text-xs font-mono">
-                                                {exp.company}
-                                            </div>
+                                        <div className="absolute bottom-0 left-0 right-0 p-4" style={{background: 'linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, transparent 100%)'}}>
+                                            <div className="text-text-primary/80 text-xs font-mono">{exp.company}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -214,7 +215,12 @@ const WallList = () => {
                                         <img
                                             src={exp.logo}
                                             alt={`${exp.company} logo`}
-                                            className="w-full h-full object-contain rounded-lg bg-accent/8 backdrop-blur-sm border border-border-subtle p-2 transition-all duration-300 group-hover:border-accent/40 group-hover:bg-accent/12"
+                                            className="w-full h-full object-contain rounded-lg p-2 transition-all duration-300 group-hover:scale-110"
+                                            style={{
+                                                background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%)',
+                                                backdropFilter: 'blur(8px)',
+                                                border: '1px solid rgba(0, 0, 0, 0.08)',
+                                            }}
                                             loading="lazy"
                                         />
                                     </div>
@@ -229,12 +235,17 @@ const WallList = () => {
                                 <div className={`
                                     flex flex-col md:flex-row md:items-center gap-3 md:gap-8
                                     text-sm md:text-base font-mono tracking-wide
-                                    transition-all duration-300
+                                    transition-all duration-300 px-4 py-2 rounded-lg
                                     ${hoveredIndex === index
                                         ? 'translate-y-0 opacity-100'
                                         : 'md:translate-y-4 md:opacity-0'
-                                    }
-                                `}>
+                                    }`}
+                                    style={{
+                                        background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%)',
+                                        backdropFilter: 'blur(8px)',
+                                        border: '1px solid rgba(0, 0, 0, 0.06)',
+                                    }}
+                                >
                                     <span className="text-text-primary/80 font-sans">{exp.role}</span>
                                     <span className="text-accent">{exp.year}</span>
                                 </div>
@@ -242,20 +253,14 @@ const WallList = () => {
 
                             {/* Hover Line Animation */}
                             <div className="absolute bottom-0 left-0 h-px bg-accent transition-all duration-300 ease-out"
-                                style={{
-                                    width: hoveredIndex === index ? '100%' : '0%'
-                                }}
+                                style={{width: hoveredIndex === index ? '100%' : '0%'}}
                             />
                         </div>
                     ))}
 
                     {/* Bottom Border */}
-                    <div className="border-t border-border-subtle"></div>
+                    <div style={{borderTop: '1px solid rgba(255, 255, 255, 0.08)'}}></div>
                 </div>
-
-                {/* Decorative Corner Elements */}
-                <div className="absolute top-0 left-0 w-32 h-32 border-l border-t border-border-default pointer-events-none" />
-                <div className="absolute bottom-0 right-0 w-32 h-32 border-r border-b border-border-default pointer-events-none" />
             </div>
         </section>
     );

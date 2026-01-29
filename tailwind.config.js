@@ -30,8 +30,8 @@ export default {
       },
 
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['Inter', 'monospace'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
       },
 
       fontSize: {

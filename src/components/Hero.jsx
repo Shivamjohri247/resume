@@ -199,7 +199,7 @@ const Hero = () => {
                 {/* Massive Name */}
                 <h1
                     ref={nameRef}
-                    className="font-sans font-black text-massive leading-[0.9] tracking-tighter text-text-primary mb-8 overflow-hidden"
+                    className="font-sans font-black text-massive leading-[0.9] tracking-tighter text-white mb-8 overflow-hidden"
                     style={{
                         textTransform: 'uppercase',
                         letterSpacing: '-0.04em'
@@ -211,7 +211,7 @@ const Hero = () => {
                 {/* Subtitle */}
                 <p
                     ref={subtitleRef}
-                    className="font-mono text-lg md:text-xl lg:text-2xl text-text-secondary tracking-widest uppercase"
+                    className="font-mono text-lg md:text-xl lg:text-2xl text-gray-300 tracking-widest uppercase"
                     style={{
                         letterSpacing: '0.2em'
                     }}
@@ -224,51 +224,112 @@ const Hero = () => {
                     <a
                         href="#contact"
                         onClick={scrollToContact}
-                        className="group inline-flex items-center justify-center gap-3 font-sans text-sm font-semibold uppercase tracking-widest text-text-primary border border-text-primary/40 px-10 py-4 hover:bg-accent hover:text-background hover:border-accent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background min-w-[160px] min-h-[56px]"
+                        className="group relative inline-flex items-center justify-center gap-3 font-sans text-sm font-semibold uppercase tracking-widest text-white border border-white/40 px-10 py-4 hover:bg-white hover:text-black hover:border-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-background min-w-[160px] min-h-[56px] overflow-hidden"
                         style={{
-                            borderRadius: '0'
+                            borderRadius: '0',
+                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
+                            backdropFilter: 'blur(10px)',
+                            boxShadow: '0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.95)';
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 1)';
+                            e.currentTarget.style.boxShadow = '0 8px 32px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)';
+                            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                            e.currentTarget.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
                         }}
                         aria-label="Scroll to contact section"
                     >
-                        Let's Talk
-                        <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        <span className="relative z-10">Let's Talk</span>
+                        <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">→</span>
                     </a>
 
                     {/* Social Icons */}
-                    <div className="flex items-center justify-center gap-4 mt-6">
+                    <div className="flex items-center justify-center gap-3 mt-8">
                         <a
                             href="https://linkedin.com/in/shivam-johri"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-muted hover:text-accent transition-colors duration-300"
+                            className="group relative inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:border-white transition-all duration-300 hover:scale-110 overflow-hidden"
+                            style={{
+                                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
+                                backdropFilter: 'blur(10px)',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                                e.currentTarget.style.boxShadow = '0 8px 32px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}
                             aria-label="LinkedIn Profile"
                         >
-                            <Linkedin size={16} strokeWidth={1.5} />
+                            <Linkedin size={18} strokeWidth={1.5} className="text-gray-400 group-hover:text-black transition-colors duration-300 relative z-10" />
                         </a>
                         <a
-                            href="https://github.com/shivamjohri"
+                            href="https://github.com/Shivamjohri247"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-muted hover:text-accent transition-colors duration-300"
+                            className="group relative inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:border-white transition-all duration-300 hover:scale-110 overflow-hidden"
+                            style={{
+                                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
+                                backdropFilter: 'blur(10px)',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                                e.currentTarget.style.boxShadow = '0 8px 32px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}
                             aria-label="GitHub Profile"
                         >
-                            <Github size={16} strokeWidth={1.5} />
+                            <Github size={18} strokeWidth={1.5} className="text-gray-400 group-hover:text-black transition-colors duration-300 relative z-10" />
                         </a>
                         <a
                             href="https://www.kaggle.com/shivamjohri"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-muted hover:text-accent transition-colors duration-300"
+                            className="group relative inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:border-white transition-all duration-300 hover:scale-110 overflow-hidden"
+                            style={{
+                                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
+                                backdropFilter: 'blur(10px)',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                                e.currentTarget.style.boxShadow = '0 8px 32px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}
                             aria-label="Kaggle Profile"
                         >
-                            <Brain size={16} strokeWidth={1.5} />
+                            <Brain size={18} strokeWidth={1.5} className="text-gray-400 group-hover:text-black transition-colors duration-300 relative z-10" />
                         </a>
                         <a
                             href="mailto:shivamjohri247@gmail.com"
-                            className="text-text-muted hover:text-accent transition-colors duration-300"
+                            className="group relative inline-flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:border-white transition-all duration-300 hover:scale-110 overflow-hidden"
+                            style={{
+                                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
+                                backdropFilter: 'blur(10px)',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+                                e.currentTarget.style.boxShadow = '0 8px 32px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}
                             aria-label="Send Email"
                         >
-                            <Mail size={16} strokeWidth={1.5} />
+                            <Mail size={18} strokeWidth={1.5} className="text-gray-400 group-hover:text-black transition-colors duration-300 relative z-10" />
                         </a>
                     </div>
                 </div>
@@ -290,12 +351,12 @@ const Hero = () => {
                         }
                     }}
                 >
-                    <span className="font-mono text-xs uppercase tracking-widest text-text-secondary group-hover:text-text-primary transition-colors duration-300">
+                    <span className="font-mono text-xs uppercase tracking-widest text-gray-400 group-hover:text-white transition-colors duration-300">
                         Scroll
                     </span>
                     <div className="scroll-icon">
                         <ArrowDown
-                            className="w-5 h-5 text-text-secondary group-hover:text-text-primary transition-colors duration-300"
+                            className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300"
                             strokeWidth={2}
                         />
                     </div>
